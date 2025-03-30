@@ -3,14 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario de Alta</title>
+    <title>Formulario de Venta</title>
 </head>
+
+<header>
+    <h1>Cambiaso</h1>
+    <h3>Completa el formulario con todos los detalles necesarios para la venta de tu producto.</h3>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="comprar.html">Comprar</a></li>
+            <li><a href="formulario.html">Vender</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+</header>
 <body>
     <form>
-        <label for="titulo">Título del producto: </label><br>
+        <label for="titulo">Título del producto:</label><br>
         <input type="text" id="titulo" name="titulo"><br>
         <label for="precio">Precio:</label><br>
-        <input type="text" id="precio" name="precio"><br>
+        <input type="number" id="precio" name="precio" min="0" value="0"><br>
         <label for="categoria">Categoría:</label><br>
         <select id="categoria" name="categoria"><br> 
             <option value="muebles">Muebles</option>
