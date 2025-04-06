@@ -1,0 +1,60 @@
+*{
+    margin: 0%;
+    border: 0%;
+    padding: 0;
+}
+
+header{
+        position: sticky;
+        top:0;
+}
+nav {
+    background-color: black;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Estilos de la lista */
+.menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 30px;
+    position: sticky;
+}
+
+.menu li{
+    display: inline;
+    padding: 25px;
+   
+}
+.menu a {
+    text-decoration: none; /* Quita el subrayado */
+    color: white; /* Color del texto */
+    font-size: 22px; /* Tamaño del texto */
+    font-weight: semi-bold;
+    padding: 18px; /* Espaciado interno */
+    margin: 5px;
+    
+ 
+}
+
+/* Cambio de color al pasar el mouse */
+.menu li a:hover {
+    color: #ff6600;
+    background-color: rgb(40, 51, 63);
+    border-radius: 15px;
+    font-weight: bold;
+   
+
+}
+
+#encabezado h1{
+    text-align: center;
+    margin: 130 px;
+    padding: 20px;
+    background-color: aqua;
+    text-size: 120px;
+}
+
+
