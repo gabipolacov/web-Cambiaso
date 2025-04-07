@@ -26,7 +26,6 @@ nav {
 .menu li{
     display: inline;
     padding: 25px;
-   
 }
 .menu a {
     text-decoration: none; /* Quita el subrayado */
@@ -34,9 +33,7 @@ nav {
     font-size: 22px; /* Tamaño del texto */
     font-weight: semi-bold;
     padding: 18px; /* Espaciado interno */
-    margin: 5px;
-    
- 
+    margin: 5px; 
 }
 
 /* Cambio de color al pasar el mouse */
@@ -45,16 +42,48 @@ nav {
     background-color: rgb(40, 51, 63);
     border-radius: 15px;
     font-weight: bold;
-   
-
 }
 
 #encabezado h1{
     text-align: center;
-    margin: 130 px;
-    padding: 20px;
+    padding: 10px;
     background-color: aqua;
-    text-size: 120px;
+    font-size: 50px;
 }
 
+#encabezado h3{
 
+    text-align: center;
+    background-color: red;
+    font-size: 25px;
+    font-weight: lighter;
+}
+
+#art1, #art2, #art3{
+    background-color: rgb(43, 226, 223);
+    width: 507px;
+    font-size: 20px;  
+    padding: 15px;
+    border: 3px solid;
+    margin: 20px;
+    height: 670px;
+    
+}
+
+#art1 h3, #art2 h3, #art3 h3 {
+    text-align: center;
+    padding: 2px;
+
+}
+
+#art1 button, #art2 button, #art3 button{
+    text-align: center;
+    font-size: 22px;
+    font-weight: semi-bold;
+    padding:10px;
+    background-color: green;
+    border-radius: 7px;
+    margin: 10px;
+    align-self: center;
+    
+}
