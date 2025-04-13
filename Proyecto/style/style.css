@@ -28,7 +28,7 @@ nav {
             text-decoration: none; /* Quita el subrayado */
             color: white; 
             font-size: 22px; 
-            font-weight: semi-bold;
+            font-weight: bold;
             padding: 18px; 
             margin: 5px; 
         }
@@ -36,13 +36,17 @@ nav {
     }
 }
 
-a:hover{
+.menu li a:hover{
     color: #ff7700;
     background-color: rgb(40, 51, 63);
     border-radius: 15px;
     font-weight: bold;
 }
 
+/* Estilos del buscador */
+#buscador{
+    background-color: blueviolet;
+}
 
 /* Estilos del encabezado */
 #encabezado h1{
@@ -109,50 +113,171 @@ a:hover{
         background-color: rgb(0, 0, 0);
         border-radius: 15px;
         font-weight: bold;
-
-    }
-    
+    }   
 }
 
 
+/* Estilos del formulario de venta */
 #sellform{
     display: grid;
     background-color: rgb(247, 255, 2);
-    padding: 20px;
-    font-size: 20px;
+    padding: 10px;
+    font-size: 21px;
     background-color: yellow;
     grid-template-columns: 50% 50%;
     grid-template-rows: 25% 25% 25% 25%;
 }
 
 #sellform form{
-    justify-content: right;
-    background-color: red;
+    display: block;
     grid-column-start:2;
     grid-row-start: 1;
     grid-row-end: 5;
-    padding: 5%;
+    padding: 2%;
+    margin-bottom: 10px;
+    background-color: #ff7700;
 }
+
+
+#sellform form > * {/*Selecciona todos los elementos que son hijos directos del <form>*/
+    padding: 2px;
+    margin: 7px;
+  }
+  
+  #sellform form input,
+  #sellform form select,
+  #sellform form textarea {
+    width: 90%;
+    padding: 1%;
+    font-size: 19px;
+  }
+
+  #sellform form textarea{
+    resize: none;
+  }
+
+  #sellform form button{
+    width:fit-content;  
+    font-size: 20px;
+    font-weight: semi-bold;
+    padding:10px;
+    border-radius: 7px;
+    margin: 10px;
+    box-shadow: 100px rgb(255, 0, 0);
+    align-self: flex-end;
+  }
 
 #sellform h1{
     background-color: aqua;
-   align-content:end ;
+   align-content:center;
     text-align: center;
-    grid-row-start: 1;
+    grid-row-start: 2;
     grid-row-end: 2;
 }
 
 #sellform h3{
     background-color:green ;
     text-align: center;
-    align-content: center;
+    align-content: start;
+    grid-row-start: 3;
+    
 }
 
-
-#buscador{
-    background-color: blueviolet;
-}
-
+/*Estilos de la sección contacto*/
 #contacto{
     background-color: aqua;
+    display: grid; /*Uso de grid*/
+    padding: 10px;
+    font-size: 21px;
+    background-color: yellow;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25% 25%;
+
+}
+
+#contacto form{
+    display: block;
+    grid-column-start:1;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    padding: 2%;
+    margin-bottom: 10px;
+    background-color: #ff7700;
+}
+
+/*Selecciona todos los elementos que son hijos directos del <form>*/
+#contacto form > * {
+    padding: 2px;
+    margin: 7px;
+  }
+  
+  #contacto form input,
+  #contacto form select,
+  #contacto form textarea {
+    width: 90%;
+    padding: 1%;
+    font-size: 19px;
+  }
+
+  /*Evita que el textarea sea agrandado/achicado*/
+  #contacto form textarea{
+    resize: none;
+  }
+
+  #contacto form button{
+    width:fit-content;  
+    font-size: 20px;
+    padding:10px;
+    border-radius: 7px;
+    margin: 10px;
+    box-shadow: 100px rgb(255, 0, 0);
+    align-self: flex-end;
+  }
+
+#contacto h1{
+    background-color: aqua;
+   align-content:center;
+    text-align: center;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+
+#contacto h3{
+    background-color:green ;
+    text-align: center;
+    align-content: start;
+    grid-row-start: 3;    
+}
+
+/*Estilos del footer*/
+footer{
+    background-color: brown;
+    display: flex; /*Uso de flexbox*/
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 8px ;
+    gap:9px;
+   
+}
+
+footer div{
+    padding: 8px;
+}
+
+footer .redes a{
+    text-decoration: none;
+    text-align: center;
+    background-color: antiquewhite;
+    height: 30px;
+}
+
+footer img{
+    width: 25px;
+    margin: 0 5px;
+}
+
+footer p{
+    padding: 1px;
+    font-weight: 500;
 }
