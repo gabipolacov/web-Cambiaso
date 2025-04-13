@@ -115,17 +115,40 @@ a:hover{
 }
 
 
-#form{
-    display: flex;
-    justify-content: center;
+#sellform{
+    display: grid;
     background-color: rgb(247, 255, 2);
     padding: 20px;
-    height: auto;
+    font-size: 20px;
+    background-color: yellow;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25% 25%;
 }
 
-.form label{
-    font-size: 23px;
+#sellform form{
+    justify-content: right;
+    background-color: red;
+    grid-column-start:2;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    padding: 5%;
 }
+
+#sellform h1{
+    background-color: aqua;
+   align-content:end ;
+    text-align: center;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+#sellform h3{
+    background-color:green ;
+    text-align: center;
+    align-content: center;
+}
+
+
 #buscador{
     background-color: blueviolet;
 }
