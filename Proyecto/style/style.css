@@ -3,7 +3,7 @@
     border: 0%;
     padding: 0;
 }
-
+/* Para que el menú de navegación quede fijo en la parte superior */
 header{
         position: sticky;
         top:0;
@@ -32,11 +32,12 @@ nav {
             padding: 18px; 
             margin: 5px; 
         }
+        
     }
 }
 
 a:hover{
-    color: #ff6600;
+    color: #ff7700;
     background-color: rgb(40, 51, 63);
     border-radius: 15px;
     font-weight: bold;
@@ -58,46 +59,77 @@ a:hover{
     font-weight: lighter;
 }
 
+/* Estilo de la galería */
+
+#gallery{
+    background-color: rgb(2, 57, 255);
+    display: grid;/*Uso de grid*/
+    grid-template-columns: repeat(3, 1fr); /*Columnas en grid*/
+    padding:20px auto;
+    gap:10px;
+    width: 90%;
+    margin: 20px auto; /*para arriba y abajo y auto para costados*/
+    /*max-width: 1600px;*/
+}
+
 /* Estilos de las tarjetas */
-#art1, #art2, #art3{
-    background-color: rgb(43, 226, 223);
-    width: 507px;
-    font-size: 20px;  
-    padding: 15px;
-    border: 3px solid;
-    margin: 20px;
-    height: 670px;
+#card1, #card2, #card3{  
+    display:flex; /*Uso de flexbox*/
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: rgb(249, 229, 206);
+    font-size: 20px;
+    border-radius: 6px;
+    border-color: 1px rgb(58, 56, 53) solid;
+    padding:20px;
+    margin: 10px; 
+
     h3{
         text-align: center;
         padding: 2px; 
     }
     button{
-        text-align: center;
-        font-size: 22px;
+        width:fit-content;  
+        font-size: 20px;
         font-weight: semi-bold;
         padding:10px;
-        background-color: green;
         border-radius: 7px;
         margin: 10px;
+        box-shadow: 100px rgb(255, 0, 0);
+        align-self: flex-end;
+    }
+    img{
+        height:180px;
+        align-self: center;
+        border-radius: 6px;
+    }
 
-    } 
-}
+    button:hover{
+        color: #ff6600;
+        background-color: rgb(0, 0, 0);
+        border-radius: 15px;
+        font-weight: bold;
 
-/*#art1 h3, #art2 h3, #art3 h3 {
-    text-align: center;
-    padding: 2px;
-
-}
-
-#art1 button, #art2 button, #art3 button{
-    text-align: center;
-    font-size: 22px;
-    font-weight: semi-bold;
-    padding:10px;
-    background-color: green;
-    border-radius: 7px;
-    margin: 10px;
-    
+    }
     
 }
-*/
+
+
+#form{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(247, 255, 2);
+    padding: 20px;
+    height: auto;
+}
+
+.form label{
+    font-size: 23px;
+}
+#buscador{
+    background-color: blueviolet;
+}
+
+#contacto{
+    background-color: aqua;
+}
