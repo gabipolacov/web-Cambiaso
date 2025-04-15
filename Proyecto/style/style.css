@@ -2,11 +2,19 @@
     margin: 0%;
     border: 0%;
     padding: 0;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 /* Para que el menú de navegación quede fijo en la parte superior */
 header{
         position: sticky;
         top:0;
+}
+
+ h2{
+    text-align: center;
+    font-size: 30px;
 }
 nav {
     background-color: black;
@@ -19,18 +27,22 @@ nav {
     list-style: none;
     padding: 0;
     margin: 0;
-    height: 30px;
+    height: 35px;
     position: sticky;
+    background-color: #000000;
     li{
         display: inline;
         padding: 25px;
+        background-color: black;
         a{
             text-decoration: none; /* Quita el subrayado */
             color: white; 
-            font-size: 22px; 
-            font-weight: bold;
+            font-size: 25px; 
             padding: 18px; 
             margin: 5px; 
+            font-family: "Bebas Neue", sans-serif;
+            font-weight: 200;
+            background-color: black;
         }
         
     }
@@ -40,33 +52,47 @@ nav {
     color: #ff7700;
     background-color: rgb(40, 51, 63);
     border-radius: 15px;
-    font-weight: bold;
 }
 
 /* Estilos del buscador */
 #buscador{
-    background-color: blueviolet;
+    padding: 20px;
+
+}
+
+#buscador form{
+    display: flex;
+    justify-content: center;
 }
 
 /* Estilos del encabezado */
 #encabezado h1{
     text-align: center;
     padding: 10px;
-    background-color: aqua;
-    font-size: 50px;
+    background-color: rgb(0, 0, 0);
+    color:white;
+    font-size: 90px;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: italic;
 }
 
 #encabezado h3{
     text-align: center;
-    background-color: red;
+    background-color: rgb(0, 0, 0);
+    color:white;
     font-size: 25px;
     font-weight: lighter;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: italic;
 }
 
 /* Estilo de la galería */
 
+
+
 #gallery{
-    background-color: rgb(2, 57, 255);
     display: grid;/*Uso de grid*/
     grid-template-columns: repeat(3, 1fr); /*Columnas en grid*/
     padding:20px auto;
@@ -76,17 +102,21 @@ nav {
     /*max-width: 1600px;*/
 }
 
+#gallery > *{
+    font-size:19px;
+}
+
 /* Estilos de las tarjetas */
 #card1, #card2, #card3{  
     display:flex; /*Uso de flexbox*/
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: rgb(249, 229, 206);
-    font-size: 20px;
     border-radius: 6px;
     border-color: 1px rgb(58, 56, 53) solid;
-    padding:20px;
+    padding:13px;
     margin: 10px; 
+    background-color: #dbd5d5;
+    box-shadow: 5px 5px 10px rgb(112, 104, 104);
 
     h3{
         text-align: center;
@@ -94,13 +124,17 @@ nav {
     }
     button{
         width:fit-content;  
-        font-size: 20px;
         font-weight: semi-bold;
         padding:10px;
         border-radius: 7px;
         margin: 10px;
-        box-shadow: 100px rgb(255, 0, 0);
         align-self: flex-end;
+        font-size:19px;
+        background-color: #ff7700; /* Naranja */
+        color: black;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
     }
     img{
         height:180px;
@@ -111,7 +145,6 @@ nav {
     button:hover{
         color: #ff6600;
         background-color: rgb(0, 0, 0);
-        border-radius: 15px;
         font-weight: bold;
     }   
 }
@@ -120,10 +153,7 @@ nav {
 /* Estilos del formulario de venta */
 #sellform{
     display: grid;
-    background-color: rgb(247, 255, 2);
     padding: 10px;
-    font-size: 21px;
-    background-color: yellow;
     grid-template-columns: 50% 50%;
     grid-template-rows: 25% 25% 25% 25%;
 }
@@ -135,13 +165,16 @@ nav {
     grid-row-end: 5;
     padding: 2%;
     margin-bottom: 10px;
-    background-color: #ff7700;
+
 }
 
 
 #sellform form > * {/*Selecciona todos los elementos que son hijos directos del <form>*/
     padding: 2px;
     margin: 7px;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
   }
   
   #sellform form input,
@@ -149,7 +182,6 @@ nav {
   #sellform form textarea {
     width: 90%;
     padding: 1%;
-    font-size: 19px;
   }
 
   #sellform form textarea{
@@ -158,17 +190,21 @@ nav {
 
   #sellform form button{
     width:fit-content;  
-    font-size: 20px;
     font-weight: semi-bold;
     padding:10px;
     border-radius: 7px;
     margin: 10px;
-    box-shadow: 100px rgb(255, 0, 0);
     align-self: flex-end;
+    font-size:19px;
+    background-color: #ff7700; /* Naranja */
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
 
 #sellform h1{
-    background-color: aqua;
+ 
    align-content:center;
     text-align: center;
     grid-row-start: 2;
@@ -176,7 +212,6 @@ nav {
 }
 
 #sellform h3{
-    background-color:green ;
     text-align: center;
     align-content: start;
     grid-row-start: 3;
@@ -184,12 +219,10 @@ nav {
 }
 
 /*Estilos de la sección contacto*/
+
 #contacto{
-    background-color: aqua;
     display: grid; /*Uso de grid*/
     padding: 10px;
-    font-size: 21px;
-    background-color: yellow;
     grid-template-columns: 50% 50%;
     grid-template-rows: 25% 25% 25% 25%;
 
@@ -202,13 +235,16 @@ nav {
     grid-row-end: 5;
     padding: 2%;
     margin-bottom: 10px;
-    background-color: #ff7700;
 }
 
 /*Selecciona todos los elementos que son hijos directos del <form>*/
 #contacto form > * {
     padding: 2px;
     margin: 7px;
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+
   }
   
   #contacto form input,
@@ -216,7 +252,6 @@ nav {
   #contacto form textarea {
     width: 90%;
     padding: 1%;
-    font-size: 19px;
   }
 
   /*Evita que el textarea sea agrandado/achicado*/
@@ -226,16 +261,20 @@ nav {
 
   #contacto form button{
     width:fit-content;  
-    font-size: 20px;
+    font-weight: semi-bold;
     padding:10px;
     border-radius: 7px;
     margin: 10px;
-    box-shadow: 100px rgb(255, 0, 0);
     align-self: flex-end;
+    font-size:19px;
+    background-color: #ff7700; /* Naranja */
+    color: black;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
 
 #contacto h1{
-    background-color: aqua;
    align-content:center;
     text-align: center;
     grid-row-start: 2;
@@ -243,7 +282,6 @@ nav {
 }
 
 #contacto h3{
-    background-color:green ;
     text-align: center;
     align-content: start;
     grid-row-start: 3;    
@@ -251,12 +289,12 @@ nav {
 
 /*Estilos del footer*/
 footer{
-    background-color: brown;
+    background-color: black;
     display: flex; /*Uso de flexbox*/
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    padding: 8px ;
+    justify-content: center; /*Ubica los elementos en el centro*/
+    padding: 2px;
     gap:9px;
    
 }
@@ -268,8 +306,11 @@ footer div{
 footer .redes a{
     text-decoration: none;
     text-align: center;
-    background-color: antiquewhite;
     height: 30px;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    font-style: italic;
 }
 
 footer img{
@@ -279,5 +320,8 @@ footer img{
 
 footer p{
     padding: 1px;
-    font-weight: 500;
+    font-weight: 400;
+    font-size: 16px;
+    color: white;
+    font-style: italic;
 }
