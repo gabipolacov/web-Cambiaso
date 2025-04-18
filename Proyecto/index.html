@@ -20,20 +20,21 @@
                 <li><a href="#buscador">Buscar</a></li>
                 <li><a href="#sellform">Vender</a></li>
                 <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#sales">Promociones</a></li>
             </ul>
         </nav>
 
     </header>
-    <div id="encabezado">
+    <div class="header">
    <h1>Cambiaso</h1>
         <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
     </div>
     <main>
 
-        <section id="buscador">
+        <section class="search">
             <form action="resultados.html" method="get">
                 <input type="search" name="busqueda" placeholder="Buscar...">
-                <button type="submit" class="icono-buscar"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+                <button type="submit" class="search-icon"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
             </form>
         </section>
         <!--Muestra de Productos-->
@@ -41,7 +42,7 @@
             <h2>Productos destacados</h2>
         </div>
 
-        <section id="gallery">
+        <section class="gallery">
             
             <div class="card">
                 <img src="./imagenes/Cortadoradecesped.webp" width="200" height="200" alt="Cortadora de Cesped">
@@ -86,9 +87,9 @@
          <div id="sellform-title">
             <h2>Formulario de Venta</h2>
         </div>
-        <section id="sellform"> 
+        <section class="sellform"> 
            
-            <h1>Vende lo que necesitás</h1>
+            <h1>Vende lo que no necesitás</h1>
             <h3>Completá los campos para publicar el artículo que quieras vender.</h3>          
             <form>
                 <label for="titulo">Título del producto:</label><br>
@@ -116,13 +117,22 @@
             </form>
             
         </section>
+
+         <!--Promociones-->
+         <div id="sales-title">
+            <h2>Promociones en Cambiaso</h2>
+        </div>
+        <section class="sales"> 
+            <img src="./imagenes/banner.jpg" alt="Sales Banner" >     
+            
+        </section>
         
          <!--Formulario de Contacto-->
          <div id="sellcontact-title">
             <h2>Formulario de Contacto</h2>
         </div>
     
-        <section id="contacto">
+        <section class="contact">
             <h1>¿Necesitas ayuda o tenés alguna consulta?</h1>
             <h3>Completá los campos del formulario, agrega tu consulta en el campo comentarios y te responderemos a la brevedad.</h3>
             <form>
@@ -145,9 +155,9 @@
         <p>Hecho en Argentina.</p>
         </div>
         <div class="redes">
-            <a href="#"><img src="./iconos/facebook.png" alt="Facebook">CambiasoArg</a><br>
-            <a href="#"><img src="./iconos/instagram.png" alt="Instagram">CambiasoArg</a><br>
-            <a href="#"><img src="./iconos/twitter.png" alt="Twitter">CambiasoArg</a><br>
+            <a href="#"><img src="./iconos/facebook.png" alt="Facebook">CambiasoArg</a>
+            <a href="#"><img src="./iconos/instagram.png" alt="Instagram">CambiasoArg</a>
+            <a href="#"><img src="./iconos/twitter.png" alt="Twitter">CambiasoArg</a>
         </div>
         <div class="contactdata">
           <p>Email: contacto@cambiaso.com</p>
