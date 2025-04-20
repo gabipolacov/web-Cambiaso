@@ -3,12 +3,16 @@
     border: 0%;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
+    font-optical-sizing: auto; /* Ajusta el grosor y forma del texto según el tamaño para mejorar la legibilidad */
     font-style: normal;
 }
 
-main{
+
+body{
     background-color: #fbf6f6;
+    width: 100%; /* Evita el scroll horizontal si algo se desborda */
+    overflow-x: hidden;
+    max-width: 100vw; /* Ajusta el tamaño para que no se desborde del ancho de pantalla */
 }
 /* Para que el menú de navegación quede fijo en la parte superior */
 header{
@@ -36,37 +40,35 @@ header{
 
 /* Estilos del menú de navegación */
 nav {
-    background-color: black;
+    background-color: rgb(0, 0, 0);
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
-
 
 .menu {
     list-style: none;
     padding: 0;
     margin: 0;
-    height: 35px;
+    height: 38px;
     position: sticky;
-    background-color: #000000;
+    align-items: center;
+    padding: 10px;
     li{
         display: inline;
-        padding: 25px;
-        background-color: black;
+        padding: 20px;
+        background-color: rgb(0, 0, 0);
+        justify-content: center;
+
         a{
             text-decoration: none; /* Quita el subrayado */
             color: white; 
             font-size: 25px; 
-            padding: 18px; 
+            padding: 16px; 
             margin: 5px; 
             font-family: "Bebas Neue", sans-serif;
             font-weight: 200;
-            background-color: black;
-             :hover{
-                    color: #00ff77;
-                    background-color: rgb(40, 51, 63);
-                    border-radius: 15px;
-            }
+            background-color: rgb(0, 0, 0);
+            
         }
         
     }
@@ -82,12 +84,14 @@ nav {
 .search{
     padding: 20px;
     background-color: #000000;
-    margin: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
 }
 
 .search form{
-    display: flex;
     justify-content: center;
+    align-items: center;
     input{
         width: 500px;
         height: 35px;
@@ -98,17 +102,14 @@ nav {
     }
     .search-icon{
         background-color: #000000;
-        height:35px;
-        width: 40px;
         color:#ffffff;
         border: #000000;
     }
 }
 
 /* Estilos del encabezado */
-
 /*Cambiaso*/
-.header h1{
+.main-title h1{
     text-align: center;
     padding: 10px;
     background-color: rgb(0, 0, 0);
@@ -119,12 +120,13 @@ nav {
     font-style: italic;
 }
 /*Encontrá lo que buscas, vendé lo que no necesitas.*/
-.header h3{
+.main-title h3{
     text-align: center;
     background-color: rgb(0, 0, 0);
     color:white;
     font-size: 25px;
     font-weight: lighter;
+    border-color: #000000;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: italic;
@@ -134,10 +136,9 @@ nav {
 .gallery{
     display: grid;/*Uso de grid*/
     grid-template-columns: repeat(3, 1fr); /*Columnas en grid*/
-    padding:20px auto;
+    padding:20px;
     gap:10px;
-    width: 90%;
-    margin: 20px auto; /*para arriba y abajo y auto para costados*/
+    margin: 15px; /*para arriba y abajo y auto para costados*/
     /*max-width: 1600px;*/
 }
 
@@ -146,11 +147,12 @@ nav {
 .card{  
     display:flex; /*Uso de flexbox*/
     flex-direction: column;
-    justify-content: space-evenly;
+    width: 80%;
+    justify-content: space-between;
     border-radius: 6px;
     border-color: 1px rgb(58, 56, 53) solid;
     padding:10px;
-    margin: 10px; 
+    margin: 5px; 
     background-color: #dbd5d5;
     box-shadow: 5px 5px 10px rgb(112, 104, 104);
     p{
@@ -163,7 +165,8 @@ nav {
 
     }
     img{
-        height:180px;
+        height:auto;
+        width: 60%;
         align-self: center;
         border-radius: 6px;
     }  
@@ -186,7 +189,7 @@ form select {
   }
 
 form input,
-form textarea{
+form textarea, form select{
     border: 2px solid #a39f9f;
     font-weight: normal;
   }
@@ -259,8 +262,7 @@ input:focus, textarea:focus{
     
 }
 .sales img{
-    width:1285px;
-    height:400px;
+    width:100%;
     background-color: red;
     align-self: center;
 }
@@ -301,19 +303,23 @@ footer{
     background-color: rgb(0, 0, 0);
     display: flex; /*Uso de flexbox*/
     flex-direction: row;
-    align-items: center;
-    justify-content: center; /*Ubica los elementos en el centro*/
-    padding: 9px;
-    gap:9px;  
+    padding: 8px;
+    justify-content: center;
+    column-gap: 10px;
 }
 
 footer div{
     padding: 5px;
 }
+
+footer .copyright{
+    justify-content: end;
+}
 footer .redes{
     display: flex;
     flex-direction: column;
-    row-gap: 7px;
+    row-gap: 9px;
+    justify-content: center;
   }
 
 footer .redes a{
@@ -323,6 +329,7 @@ footer .redes a{
     font-size: 15px;
     color: white;
     font-style: italic;
+    justify-content: center;
 }
 
 footer img{
@@ -338,3 +345,87 @@ footer p{
     color: white;
     font-style: italic;
 }
+
+html{
+	scroll-behavior:smooth;
+}
+
+@media (max-width: 632px){
+
+    .main-title h1{
+        font-size: 70px;
+    }
+    .main-title h3{
+        font-size: 20px;
+    }
+     h2{
+        font-size: 30px;  
+    }
+
+    .search form{
+        width: 400px;
+        justify-content: right;
+    }
+
+    .search form input{
+        width:80%;
+    }
+
+}
+
+@media (max-width: 542px) {
+    nav{
+        height: 100px;
+    }
+    .menu {
+        display: flex;
+        flex-direction: column;
+        
+        li{
+            justify-content: left;
+        }
+    }
+
+    .main-title h1{
+        font-size: 60px;
+        
+    }
+    .gallery{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding:20px;
+        gap:10px;
+        margin: 8px;
+    }
+    .sellform{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .contact{
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+   
+
+    }
+
+    footer .copyright{
+
+    }
+
+    footer .redes{
+        display: flex;
+        flex-direction: row;
+        column-gap: 5px;
+        order:3;
+    }
+
+}
+

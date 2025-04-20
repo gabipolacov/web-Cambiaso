@@ -17,15 +17,13 @@
         <!--Menú de navegación-->
         <nav>
             <ul class="menu">
-                <li><a href="#buscador">Buscar</a></li>
                 <li><a href="#sellform">Vender</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#contact">Contacto</a></li>
                 <li><a href="#sales">Promociones</a></li>
             </ul>
         </nav>
-
     </header>
-    <div class="header">
+    <div class="main-title">
    <h1>Cambiaso</h1>
         <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
     </div>
@@ -34,7 +32,9 @@
         <section class="search">
             <form action="resultados.html" method="get">
                 <input type="search" name="busqueda" placeholder="Buscar...">
-                <button type="submit" class="search-icon"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+                <button type="submit" class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                </button>
             </form>
         </section>
         <!--Muestra de Productos-->
@@ -87,7 +87,7 @@
          <div id="sellform-title">
             <h2>Formulario de Venta</h2>
         </div>
-        <section class="sellform"> 
+        <section class="sellform" id="sellform"> 
            
             <h1>Vende lo que no necesitás</h1>
             <h3>Completá los campos para publicar el artículo que quieras vender.</h3>          
@@ -122,7 +122,7 @@
          <div id="sales-title">
             <h2>Promociones en Cambiaso</h2>
         </div>
-        <section class="sales"> 
+        <section class="sales" id="sales"> 
             <img src="./imagenes/banner.jpg" alt="Sales Banner" >     
             
         </section>
@@ -132,7 +132,7 @@
             <h2>Formulario de Contacto</h2>
         </div>
     
-        <section class="contact">
+        <section class="contact" id="contact">
             <h1>¿Necesitas ayuda o tenés alguna consulta?</h1>
             <h3>Completá los campos del formulario, agrega tu consulta en el campo comentarios y te responderemos a la brevedad.</h3>
             <form>
