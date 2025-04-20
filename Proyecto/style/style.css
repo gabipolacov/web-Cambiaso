@@ -169,7 +169,10 @@ nav {
         width: 60%;
         align-self: center;
         border-radius: 6px;
-    }  
+        filter:brightness(1.1);
+        mix-blend-mode: multiply;
+    }
+
 }
 
 /* Estilos para todos los formularios */
@@ -201,7 +204,7 @@ input:focus, textarea:focus{
   }
 
 /* Estilos para todos los botones */
-.button{
+button{
     width:fit-content;  
     font-weight: semi-bold;
     padding:10px;
@@ -216,7 +219,7 @@ input:focus, textarea:focus{
     transition: all 0.3s ease;
 }
 
-.button:hover{
+button:hover{
     color: black;
     background-color: #ff6600;
     font-weight: bold;
