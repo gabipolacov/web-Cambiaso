@@ -23,6 +23,7 @@
                 <li><a href="#sellform">Vender</a></li>
                 <li><a href="#contact">Contacto</a></li>
                 <li><a href="#sales">Promociones</a></li>
+                <li><a href="#shopping-cart">Carrito</a></li>
             </ul>
         </nav>
     </header>
@@ -33,8 +34,19 @@
     <main>
 
         <section class="search">
-            <form action="resultados.html" method="get">
+            <form>
                 <input type="search" name="busqueda" placeholder="Buscar...">
+                <select id="category-filter" name="category-filter"> 
+                    <option value="muebles">Muebles</option>
+                    <option value="jardin">Jardín</option>
+                    <option value="electrodomestico">Electrodoméstico</option>
+                    <option value="tecnologia">Tecnología</option>
+                    <option value="indumentaria">Indumentaria</option>
+                    <option value="juguete">Juguetes</option>
+                    <option value="cocina">Cocina</option>
+                    <option value="inmueble">Inmuebles</option>
+                    <option value="vehiculo">Vehículos</option>
+                </select>
                 <button type="submit" class="search-icon">
                     <i class="fa-solid fa-magnifying-glass fa-xl"></i>
                 </button>
@@ -49,6 +61,46 @@
             <!--Aca van las tarjetas desde javascript-->
             <script src="./scripts/scripts.js"></script>
         </section>
+
+         <!--Carrito de compras-->
+         <div id="shopping-cart-title">
+            <h2>Mi carrito</h2>
+        </div>
+        <section class="shopping-cart">
+
+            <div class="cards-cart">
+                <div class="card-cart">
+                    <img src="./imagenes/Cortadoradecesped.webp" width="200" height="200" alt="Cortadora de Cesped">
+                    <h3>Cortadora de Césped</h3>
+                    <h3>$29000</h3>
+        
+                    <button class="button">Eliminar</button>          
+                </div>       
+                <div class="card-cart">
+                    <img src="./imagenes/tablet.png" width="200" height="200" alt="Tablet">
+                    <h3>Tablet Samsung </h3>
+                    <h3>$100000</h3>
+                    <button class="button">Eliminar</button>
+                </div>
+                <div class="card-cart">
+                    <img src="./imagenes/Cocina.webp" width="200" height="200" alt="Cocina">
+                    <h3>Cocina a gas</h3> 
+                    <h3>$530000</h3>
+                    <button class="button">Eliminar</button>
+                </div>
+            </div>
+            <div class="pay-card">
+                    <h1>Detalle de Compra</h1>
+                <div class="total-container"> 
+                    <h3>Total:</h3>
+                    <h3>$659000</h3>
+                </div>   
+                <button>Pagar</button>
+            </div>
+           
+        </section>
+
+
          <!--Venta de productos-->
 
          <div id="sellform-title">
@@ -59,12 +111,12 @@
             <h1>Vende lo que no necesitás</h1>
             <h3>Completá los campos para publicar el artículo que quieras vender.</h3>          
             <form>
-                <label for="titulo">Título del producto:</label><br>
-                <input type="text" id="titulo" name="titulo"><br>
-                <label for="precio">Precio:</label><br>
-                <input type="number" id="precio" name="precio" min="0" value="0"><br>
-                <label for="categoria">Categoría:</label><br>
-                <select id="categoria" name="categoria"><br> 
+                <label for="title">Título del producto:</label><br>
+                <input type="text" id="title" name="title"><br>
+                <label for="price">Precio:</label><br>
+                <input type="number" id="price" name="price" min="0" value="0"><br>
+                <label for="category">Categoría:</label><br>
+                <select id="category" name="category"><br> 
                     <option value="muebles">Muebles</option>
                     <option value="jardin">Jardín</option>
                     <option value="electrodomestico">Electrodoméstico</option>
