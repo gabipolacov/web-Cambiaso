@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="./style/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
 </head>
 
@@ -35,7 +35,7 @@
 
         <section class="search">
             <form>
-                <input type="search" name="busqueda" placeholder="Buscar...">
+                <input type="search" placeholder="Buscar..." id="search-product">
                 <select id="category-filter" name="category-filter"> 
                     <option value="muebles">Muebles</option>
                     <option value="jardin">Jardín</option>
@@ -47,7 +47,7 @@
                     <option value="inmueble">Inmuebles</option>
                     <option value="vehiculo">Vehículos</option>
                 </select>
-                <button type="submit" class="search-icon">
+                <button type="submit" class="search-icon" id="btn-search-product">
                     <i class="fa-solid fa-magnifying-glass fa-xl"></i>
                 </button>
             </form>
@@ -59,7 +59,7 @@
 
         <section class="gallery">
             <!--Aca van las tarjetas desde javascript-->
-            <script src="./scripts/scripts.js"></script>
+            
         </section>
 
          <!--Carrito de compras-->
@@ -110,7 +110,7 @@
            
             <h1>Vende lo que no necesitás</h1>
             <h3>Completá los campos para publicar el artículo que quieras vender.</h3>          
-            <form>
+            <form id="sell-form">
                 <label for="title">Título del producto:</label><br>
                 <input type="text" id="title" name="title"><br>
                 <label for="price">Precio:</label><br>
@@ -127,12 +127,12 @@
                     <option value="inmueble">Inmuebles</option>
                     <option value="vehiculo">Vehículos</option>
                 </select><br>
-                <label for="descripcion">Descripción:</label><br>
-                <textarea id="descripcion" name="descripcion" rows="10" cols="30"></textarea><br> 
-                <label for="imagen">Subir fotos:</label><br>
-                <input type="file" id="imagen" name="imagen" accept="image/*"><br><br>
+                <label for="description">Descripción:</label><br>
+                <textarea id="description" name="description" rows="10" cols="30"></textarea><br> 
+                <label for="image">Subir fotos:</label><br>
+                <input type="file" id="image" name="image" accept="image/*"><br><br>
                 <img id="preview" src="" alt="Vista previa" style="max-width: 300px; display: none;">
-                <button type="submit" class="button">Publicar</button>
+                <button type="submit" method="POST" class="btn-add-products">Publicar</button>
             </form>
             
         </section>
@@ -184,5 +184,6 @@
           <p>"Lo que no usás, puede ser útil para alguien más."</p>
         </div>
     </footer>
+    <script src="./scripts/scripts.js"></script>
 </body>
 </html>

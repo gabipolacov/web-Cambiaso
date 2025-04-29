@@ -456,7 +456,7 @@ html{
 	scroll-behavior:smooth;
 }
 
-@media (max-width: 779px){
+@media (max-width: 782px){
 
     .search form{
         width: 350px;
@@ -622,7 +622,7 @@ html{
     }
 
     .main-title h1{
-        font-size: 60px;    
+        font-size: 50px;    
     }
 
     .search form{
@@ -662,12 +662,10 @@ html{
     .cards-cart{
         display: flex;
         flex-direction: column;
-        background-color: #1100ff;
         align-items: center;
     }
 
     .pay-card .total-container {
-        background-color: #1100ff;
         display: flex;
         flex-direction: column;
         align-items: left;
