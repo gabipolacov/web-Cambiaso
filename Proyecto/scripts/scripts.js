@@ -51,7 +51,7 @@ function createProductCard(product) {
     description.textContent = product.description;
 
     const button = document.createElement('button');
-    button.textContent = 'Comprar';
+    button.textContent = 'Agegar al carrito';
 
     /*Se inserta el contenido en la tarjeta*/
     card.appendChild(img);
