@@ -204,8 +204,8 @@ nav {
     display: flex;
     flex-direction: row;
     padding:15px;
-    margin: 10px; /*para arriba y abajo y auto para costados*/
-    /*max-width: 1600px;*/
+    margin: 10px;
+    justify-content: center;
 
 }
 
@@ -219,11 +219,10 @@ nav {
     justify-content: space-between;
     border-radius: 6px;
     border-color: 1px rgb(58, 56, 53) solid;
-    margin-bottom: 10px; 
+    margin: 10px; 
     background-color: #dbd5d5;
     box-shadow: 5px 5px 10px rgb(112, 104, 104);
-    margin: 7px;
-    padding: 10px;
+    padding: 7px;
 
     h3{
         align-self: center;
@@ -240,6 +239,7 @@ nav {
 }
 
 .pay-card{
+
     display:flex; /*Uso de flexbox*/
     flex-direction: column;
     border-radius: 6px;
@@ -247,7 +247,7 @@ nav {
     padding:10px;
     margin: 5px; 
     position:relative;
-    background-color: #e2dada;
+    background-color:  #e2dada;
     box-shadow: 5px 5px 10px rgb(112, 104, 104);
     width: 20%;
     height: 200px;
@@ -581,8 +581,7 @@ html{
         display: flex;
         flex-direction: column;
         padding:15px;
-        margin: 20px; /*para arriba y abajo y auto para costados*/
-        /*max-width: 1600px;*/
+        margin: 20px;
     
     }
     .pay-card{
