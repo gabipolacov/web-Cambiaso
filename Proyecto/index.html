@@ -32,11 +32,19 @@
         <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
     </div>
     <main>
-
         <section class="search">
-            <form>
-                <input type="search" placeholder="Buscar..." id="search-product">
-                <select id="category-filter" name="category-filter"> 
+
+                <form class="search-form">
+                    <input type="search" placeholder="Buscar..." id="search-product">
+                    <button type="submit" class="search-icon" id="btn-search-product">
+                    <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                    </button>
+                </form>
+           
+            <form class="filters-form">
+                <div class="filter">
+                <label for="category-filter" class="filter-label">Categoría</label>
+                <select name="category-filter"> 
                     <option value="muebles">Muebles</option>
                     <option value="jardin">Jardín</option>
                     <option value="electrodomestico">Electrodoméstico</option>
@@ -47,15 +55,18 @@
                     <option value="inmueble">Inmuebles</option>
                     <option value="vehiculo">Vehículos</option>
                 </select>
-                <button type="submit" class="search-icon" id="btn-search-product">
-                    <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                </button>
-            </form>
+            </div>
+            <div class="filter">
+                <label for="filter-max">Máx</label>
+                <input type="number" name="filter-max" min="0" value="0">
+            </div>
+            <div class="filter">
+                <label for="filter-min">Min</label>
+                <input type="number" name="filter-min" min="0" value="0">
+            </div>
+        </form>
         </section>
         <!--Muestra de Productos-->
-        <div id="gallery-title">
-            <h2>Productos destacados</h2>
-        </div>
 
         <section class="gallery">
             <!--Aca van las tarjetas desde javascript-->
@@ -143,9 +154,9 @@
         </div>
         <section class="sales" id="sales"> 
             <ul>
-                <li><img src="./imagenes/banner.jpg" width="200" height="200" alt="Sales Banner" ></li>
-                <li><img src="./imagenes/banner1.jpg" width="200" height="200" alt="Sales Banner 1" ></li>
-                <li><img src="./imagenes/banner2.jpg"  width="200" height="200"alt="Sales Banner 2" ></li>
+                <li><img src="./imagenes/banner.jpg"  alt="Sales Banner" ></li>
+                <li><img src="./imagenes/banner1.jpg"  alt="Sales Banner 1" ></li>
+                <li><img src="./imagenes/banner2.jpg"  alt="Sales Banner 2" ></li>
               </ul>              
         </section>
         

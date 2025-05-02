@@ -96,27 +96,17 @@ nav {
 
 /* Estilos del buscador */
 .search{
-    padding: 20px;
     background-color: #000000;
     display: flex;
+    flex-direction: column;
+    padding: 5px;
+    align-items: center;
     justify-content: center;
-    flex-direction: row;
 }
 
-.search form{
-    justify-content: center;
-    align-items: center;
-    select{
-        width: 180px;
-        height: 35px;
-        border-radius: 5px;
-        font-size: 16px;
-        padding: 7px;
-
-    }
+.search-form{
     input{
         width: 450px;
-        height: 35px;
         border-radius: 5px;
         font-size: 16px;
         padding: 7px; 
@@ -126,6 +116,35 @@ nav {
         background-color: #000000;
         color:#ffffff;
         border: #000000;
+    }
+
+}
+.filters{
+    padding: 0px;
+}
+.filters-form {
+    align-self: center;
+    display: flex;
+    .filter{
+        display: flex;
+        flex-direction: column;
+        label{
+            color:white;
+        }
+
+        select{
+            height: 35px;
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 7px;
+            width: 200px;
+        }
+        input{
+            border-radius: 5px;
+            font-size: 16px;
+            padding: 7px;
+            width:60px; 
+        }
     }
 }
 
@@ -158,10 +177,11 @@ nav {
 /* Estilo de la galería */
 .gallery{
     display: grid;/*Uso de grid*/
-    grid-template-columns: repeat(3, 1fr); /*Columnas en grid*/
+    grid-template-columns: repeat( 3, 1fr); /*Columnas en grid*/
     padding:20px;
     gap:10px;
-    margin: 15px; /*para arriba y abajo y auto para costados*/
+    justify-items: center;
+    margin: 10px; /*para arriba y abajo y auto para costados*/
     /*max-width: 1600px;*/
 }
 
@@ -170,14 +190,16 @@ nav {
 .card{  
     display:flex; /*Uso de flexbox*/
     flex-direction: column;
-    width: 80%;
     justify-content: space-between;
     border-radius: 6px;
     border-color: 1px rgb(58, 56, 53) solid;
     padding:10px;
-    margin: 5px; 
+    margin: 10px; 
     background-color: #dbd5d5;
     box-shadow: 5px 5px 10px rgb(112, 104, 104);
+    align-self: center;
+    height: 90%;
+ /* asegura que crezca uniformemente */
     p{
         font-size: 16px;
     }
@@ -189,7 +211,7 @@ nav {
     }
     img{
         height:auto;
-        width: 60%;
+        width: 50%;
         align-self: center;
         border-radius: 6px;
         filter:brightness(1.1); /* Quita el fondo blanco de una imagen */
@@ -489,17 +511,8 @@ html{
   }
 @media (max-width: 782px){
 
-    .search form{
-        width: 350px;
-        justify-content: right;
-    }
-
-    .search form select{
-        width:70%;
-    }
-
-    .search form input{
-        width:70%;
+    .search{
+        width: 100%;
     }
 
 }
@@ -573,7 +586,6 @@ html{
     .card{  
         display:flex; /*Uso de flexbox*/
         flex-direction: column;
-        width: 80%;
 
     }
 
@@ -655,22 +667,31 @@ html{
         font-size: 50px;    
     }
 
-    .search form{
-        width: 350px;
-        justify-content: right;
+
+    .search-form{
+        align-items: center;
     }
 
-    .search form input{
-        width:70%;
-    }
+    .search-form input{
+        width:180px;
+     }
+
+    .filters-form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        input{
+            display: flex;
+            flex-direction: row;
+
+        }
+     }
 
     .gallery{
         display: flex;
         flex-direction: column;
-        align-items: center;
         padding:20px;
-        gap:10px;
-        margin: 8px;
     }
     .card-cart{  
         display:flex; /*Uso de flexbox*/

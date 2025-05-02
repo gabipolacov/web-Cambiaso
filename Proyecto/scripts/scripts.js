@@ -70,6 +70,7 @@ products.forEach( product => {
     grid.appendChild(card);
 });
 
+
 /*-----------------------------------------------------------*/
 /*Agregar productos al gallery*/
 const form = document.getElementById('sell-form');
@@ -111,6 +112,7 @@ function renderProducts(list){
         grid.appendChild(card);
     });
 }
+
 
 function filterProducts(text){
     console.log('La función filterProducts se está ejecutando');
