@@ -177,7 +177,7 @@ nav {
 /* Estilo de la galería */
 .gallery{
     display: grid;/*Uso de grid*/
-    grid-template-columns: repeat( 3, 1fr); /*Columnas en grid*/
+    grid-template-columns: repeat( 4, 1fr); /*Columnas en grid*/
     padding:20px;
     gap:10px;
     justify-items: center;
@@ -509,10 +509,19 @@ html{
     75% { transform: translateX(0); }
     100% { transform: translateX(0); }     /* Vuelve a empezar */
   }
-@media (max-width: 782px){
+@media (max-width: 910px){
 
     .search{
         width: 100%;
+    }
+
+    .gallery{
+        display: grid;/*Uso de grid*/
+        grid-template-columns: repeat(3, 1fr); /*Columnas en grid*/
+        padding:20px;
+        gap:10px;
+        margin: 15px; /*para arriba y abajo y auto para costados*/
+        /*max-width: 1600px;*/
     }
 
 }

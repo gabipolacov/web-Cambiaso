@@ -69,6 +69,10 @@ products.forEach( product => {
     const card = createProductCard(product);
     grid.appendChild(card);
 });
+products.forEach( product => {
+    const card = createProductCard(product);
+    grid.appendChild(card);
+});
 
 
 /*-----------------------------------------------------------*/
