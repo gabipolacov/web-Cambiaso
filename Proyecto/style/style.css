@@ -106,7 +106,7 @@ nav {
 
 .search-form{
     input{
-        width: 450px;
+        width: 380px;
         border-radius: 5px;
         font-size: 16px;
         padding: 7px; 
@@ -510,9 +510,6 @@ html{
   }
 @media (max-width: 910px){
 
-    .search{
-        width: 100%;
-    }
 
     .gallery{
         display: grid;/*Uso de grid*/
@@ -579,6 +576,10 @@ html{
      h2{
         font-size: 30px;  
     }
+
+    .search-form input{
+        width:280px;
+     }
 
     .gallery{
         display: grid;/*Uso de grid*/
@@ -675,18 +676,14 @@ html{
         font-size: 50px;    
     }
 
-
-    .search-form{
-        align-items: center;
-    }
-
     .search-form input{
         width:180px;
      }
 
     .filters-form {
-        align-items: center;
-        flex-wrap: wrap;
+        margin-right: 55px;
+       display: flex;
+       flex-direction: column;
      }
 
     .gallery{
