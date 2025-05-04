@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiaso</title>
     <link rel="stylesheet" href="./style/style.css">
+    <!-- Preconexión para optimizar carga de fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes Google: Bebas Neue y Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!--Icono de pestaña de la pagina-->
     <link rel="icon" type="image/x-icon" href="./iconos/icono-pagina.ico">
 </head>
 
@@ -27,52 +31,51 @@
             </ul>
         </nav>
     </header>
+    <!--Marca y eslogan-->
     <div class="main-title">
    <h1>Cambiaso</h1>
         <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
     </div>
     <main>
+        <!--Barra de búsqueda con botón-->
         <section class="search">
-
-                <form class="search-form">
-                    <input type="search" placeholder="Buscar..." id="search-product">
-                    <button type="submit" class="search-icon" id="btn-search-product">
-                    <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                    </button>
+            <form class="search-form">
+                <input type="search" placeholder="Buscar..." id="search-product">
+                <button type="submit" class="search-icon" id="btn-search-product">
+                <i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
                 </form>
-           
+           <!--Filtros de búsqueda-->
             <form class="filters-form">
                 <div class="filter">
-                <label for="category-filter" class="filter-label">Categoría</label>
-                <select name="category-filter"> 
-                    <option value="muebles">Muebles</option>
-                    <option value="jardin">Jardín</option>
-                    <option value="electrodomestico">Electrodoméstico</option>
-                    <option value="tecnologia">Tecnología</option>
-                    <option value="indumentaria">Indumentaria</option>
-                    <option value="juguete">Juguetes</option>
-                    <option value="cocina">Cocina</option>
-                    <option value="inmueble">Inmuebles</option>
-                    <option value="vehiculo">Vehículos</option>
-                </select>
-            </div>
-            <div class="filter-prices">
-            <div class="filter">
-                <label for="filter-max">Máx</label>
-                <input type="number" name="filter-max" min="0" value="0">
-            </div>
-            <div class="filter">
-                <label for="filter-min">Min</label>
-                <input type="number" name="filter-min" min="0" value="0">
-            </div>
-        </div>
-        </form>
+                    <label for="category-filter" class="filter-label">Categoría</label>
+                    <select name="category-filter"> 
+                        <option value="muebles">Muebles</option>
+                        <option value="jardin">Jardín</option>
+                        <option value="electrodomestico">Electrodoméstico</option>
+                        <option value="tecnologia">Tecnología</option>
+                        <option value="indumentaria">Indumentaria</option>
+                        <option value="juguete">Juguetes</option>
+                        <option value="cocina">Cocina</option>
+                        <option value="inmueble">Inmuebles</option>
+                        <option value="vehiculo">Vehículos</option>
+                    </select>
+                </div>
+                <div class="filter-prices">
+                <div class="filter">
+                    <label for="filter-max">Máx</label>
+                    <input type="number" name="filter-max" min="0" value="0">
+                </div>
+                <div class="filter">
+                    <label for="filter-min">Min</label>
+                    <input type="number" name="filter-min" min="0" value="0">
+                </div>
+                </div>
+            </form>
         </section>
+        
         <!--Muestra de Productos-->
-
         <section class="gallery">
-            <!--Aca van las tarjetas desde javascript-->
-            
+            <!--Aca van las tarjetas desde javascript-->           
         </section>
 
          <!--Carrito de compras-->
@@ -80,13 +83,11 @@
             <h2>Mi carrito</h2>
         </div>
         <section class="shopping-cart" id="shopping-cart">
-
             <div class="cards-cart">
                 <div class="card-cart">
                     <img src="./imagenes/Cortadoradecesped.webp" width="200" height="200" alt="Cortadora de Cesped">
                     <h3>Cortadora de Césped</h3>
                     <h3>$29000</h3>
-        
                     <button class="button">Eliminar</button>          
                 </div>       
                 <div class="card-cart">
@@ -103,24 +104,21 @@
                 </div>
             </div>
             <div class="pay-card">
-                    <h1>Detalle de Compra</h1>
+                <h1>Detalle de Compra</h1>
                 <div class="total-container"> 
                     <h3>Total:</h3>
                     <h3>$659000</h3>
                 </div>   
                 <button>Pagar</button>
-            </div>
-           
+            </div>  
         </section>
 
-
-         <!--Venta de productos-->
-
+         <!--Subtítulo venta de productos-->
          <div id="sellform-title">
             <h2>Formulario de Venta</h2>
         </div>
-        <section class="sellform" id="sellform"> 
-           
+        <!--Sección venta de productos-->
+        <section class="sellform" id="sellform">        
             <h1>Vende lo que no necesitás</h1>
             <h3>Completá los campos para publicar el artículo que quieras vender.</h3>          
             <form id="sell-form">
@@ -146,14 +144,15 @@
                 <input type="file" id="image" name="image" accept="image/*"><br><br>
                 <img id="preview" src="" alt="Vista previa" style="max-width: 300px; display: none;">
                 <button type="submit" method="POST" class="btn-add-products">Publicar</button>
-            </form>
-            
+            </form>       
         </section>
 
-         <!--Promociones-->
+         <!--Subtítulo promociones-->
          <div id="sales-title">
             <h2>Promociones en Cambiaso</h2>
         </div>
+
+        <!--Carrusel Promociones-->
         <section class="sales" id="sales"> 
             <ul>
                 <li><img src="./imagenes/banner.jpg"  alt="Sales Banner" ></li>
@@ -162,28 +161,28 @@
               </ul>              
         </section>
         
-         <!--Formulario de Contacto-->
+         <!--Subtítulo formulario de contacto-->
          <div id="sellcontact-title">
             <h2>Formulario de Contacto</h2>
         </div>
-    
+         <!--Formulario de contacto-->
         <section class="contact" id="contact">
             <h1>¿Necesitas ayuda o tenés alguna consulta?</h1>
             <h3>Completá los campos del formulario, agrega tu consulta en el campo comentarios y te responderemos a la brevedad.</h3>
             <form>
-            <label for="nombre">Nombre: </label><br>
-            <input type="text" id="nombre" name="nombre"><br>
-            <label for="apellido">Apellido:</label><br>
-            <input type="text" id="apellido" name="apellido"><br>
-            <label for="email">Correo Electrónico:</label><br>
-            <input type="email" id="email" name="email"><br>
-            <label for="descripcion">Comentarios:</label><br>
-            <textarea id="comentarios" name="comentarios" rows="8" cols="30"></textarea><br> 
-    
-            <button type="submit" class="button">Enviar</button>
-        </form>
-    </section>
+                <label for="nombre">Nombre: </label><br>
+                <input type="text" id="nombre" name="nombre"><br>
+                <label for="apellido">Apellido:</label><br>
+                <input type="text" id="apellido" name="apellido"><br>
+                <label for="email">Correo Electrónico:</label><br>
+                <input type="email" id="email" name="email"><br>
+                <label for="descripcion">Comentarios:</label><br>
+                <textarea id="comentarios" name="comentarios" rows="8" cols="30"></textarea><br> 
+                <button type="submit" class="button">Enviar</button>
+            </form>
+        </section>
     </main>
+     <!--Footer-->
     <footer>
         <div class="copyright">
         <p>© 2025 Cambiaso. Todos los derechos reservados.</p>
@@ -200,6 +199,8 @@
           <p>"Lo que no usás, puede ser útil para alguien más."</p>
         </div>
     </footer>
+
     <script src="./scripts/scripts.js"></script>
+
 </body>
 </html>
