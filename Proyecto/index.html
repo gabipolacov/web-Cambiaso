@@ -24,10 +24,10 @@
         </button>
         <nav>
             <ul class="menu">
-                <li><a href="#sellform">Vender</a></li>
-                <li><a href="#contact">Contacto</a></li>
-                <li><a href="#sales">Promociones</a></li>
-                <li><a href="#shopping-cart">Carrito</a></li>
+                <li><a href="venta.html">Vender</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
             </ul>
         </nav>
     </header>
@@ -48,7 +48,8 @@
             <form class="filters-form">
                 <div class="filter">
                     <label for="category-filter" class="filter-label">Categoría</label>
-                    <select name="category-filter"> 
+                    <select name="category-filter" id="category-filter"> 
+                        <option value="todas" selected>Todas</option>
                         <option value="muebles">Muebles</option>
                         <option value="jardin">Jardín</option>
                         <option value="electrodomestico">Electrodoméstico</option>
@@ -63,11 +64,11 @@
                 <div class="filter-prices">
                 <div class="filter">
                     <label for="filter-max">Máx</label>
-                    <input type="number" name="filter-max" min="0" value="0">
+                    <input type="number" name="filter-max" id="filter-max" min="0" value="0">
                 </div>
                 <div class="filter">
                     <label for="filter-min">Min</label>
-                    <input type="number" name="filter-min" min="0" value="0">
+                    <input type="number" name="filter-min" id="filter-min" min="0" value="0">
                 </div>
                 </div>
             </form>
@@ -76,75 +77,6 @@
         <!--Muestra de Productos-->
         <section class="gallery">
             <!--Aca van las tarjetas desde javascript-->           
-        </section>
-
-         <!--Carrito de compras-->
-         <div id="shopping-cart-title">
-            <h2>Mi carrito</h2>
-        </div>
-        <section class="shopping-cart" id="shopping-cart">
-            <div class="cards-cart">
-                <div class="card-cart">
-                    <img src="./imagenes/Cortadoradecesped.webp" width="200" height="200" alt="Cortadora de Cesped">
-                    <h3>Cortadora de Césped</h3>
-                    <h3>$29000</h3>
-                    <button class="button">Eliminar</button>          
-                </div>       
-                <div class="card-cart">
-                    <img src="./imagenes/tablet.png" width="200" height="200" alt="Tablet">
-                    <h3>Tablet Samsung </h3>
-                    <h3>$100000</h3>
-                    <button class="button">Eliminar</button>
-                </div>
-                <div class="card-cart">
-                    <img src="./imagenes/Cocina.webp" width="200" height="200" alt="Cocina">
-                    <h3>Cocina a gas</h3> 
-                    <h3>$530000</h3>
-                    <button class="button">Eliminar</button>
-                </div>
-            </div>
-            <div class="pay-card">
-                <h1>Detalle de Compra</h1>
-                <div class="total-container"> 
-                    <h3>Total:</h3>
-                    <h3>$659000</h3>
-                </div>   
-                <button>Pagar</button>
-            </div>  
-        </section>
-
-         <!--Subtítulo venta de productos-->
-         <div id="sellform-title">
-            <h2>Formulario de Venta</h2>
-        </div>
-        <!--Sección venta de productos-->
-        <section class="sellform" id="sellform">        
-            <h1>Vende lo que no necesitás</h1>
-            <h3>Completá los campos para publicar el artículo que quieras vender.</h3>          
-            <form id="sell-form">
-                <label for="title">Título del producto:</label><br>
-                <input type="text" id="title" name="title"><br>
-                <label for="price">Precio:</label><br>
-                <input type="number" id="price" name="price" min="0" value="0"><br>
-                <label for="category">Categoría:</label><br>
-                <select id="category" name="category"><br> 
-                    <option value="muebles">Muebles</option>
-                    <option value="jardin">Jardín</option>
-                    <option value="electrodomestico">Electrodoméstico</option>
-                    <option value="tecnologia">Tecnología</option>
-                    <option value="indumentaria">Indumentaria</option>
-                    <option value="juguete">Juguetes</option>
-                    <option value="cocina">Cocina</option>
-                    <option value="inmueble">Inmuebles</option>
-                    <option value="vehiculo">Vehículos</option>
-                </select><br>
-                <label for="description">Descripción:</label><br>
-                <textarea id="description" name="description" rows="10" cols="30"></textarea><br> 
-                <label for="image">Subir fotos:</label><br>
-                <input type="file" id="image" name="image" accept="image/*"><br><br>
-                <img id="preview" src="" alt="Vista previa" style="max-width: 300px; display: none;">
-                <button type="submit" method="POST" class="btn-add-products">Publicar</button>
-            </form>       
         </section>
 
          <!--Subtítulo promociones-->
@@ -161,26 +93,6 @@
               </ul>              
         </section>
         
-         <!--Subtítulo formulario de contacto-->
-         <div id="sellcontact-title">
-            <h2>Formulario de Contacto</h2>
-        </div>
-         <!--Formulario de contacto-->
-        <section class="contact" id="contact">
-            <h1>¿Necesitas ayuda o tenés alguna consulta?</h1>
-            <h3>Completá los campos del formulario, agrega tu consulta en el campo comentarios y te responderemos a la brevedad.</h3>
-            <form>
-                <label for="nombre">Nombre: </label><br>
-                <input type="text" id="nombre" name="nombre"><br>
-                <label for="apellido">Apellido:</label><br>
-                <input type="text" id="apellido" name="apellido"><br>
-                <label for="email">Correo Electrónico:</label><br>
-                <input type="email" id="email" name="email"><br>
-                <label for="descripcion">Comentarios:</label><br>
-                <textarea id="comentarios" name="comentarios" rows="8" cols="30"></textarea><br> 
-                <button type="submit" class="button">Enviar</button>
-            </form>
-        </section>
     </main>
      <!--Footer-->
     <footer>
@@ -201,6 +113,7 @@
     </footer>
 
     <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/menu.js"></script>
 
 </body>
 </html>

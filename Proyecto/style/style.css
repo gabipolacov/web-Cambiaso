@@ -23,7 +23,7 @@ header{
 /*Estilo de los subtítulos de cada sección */
  h2{
     text-align: center;
-    font-size: 50px;
+    font-size: 40px;
     padding: 20px;
     font-style: italic;
     background-color: #000000;
@@ -92,7 +92,7 @@ nav {
 
 /* Estilos del buscador */
 .search{
-    background-color: #000000;
+    background-color: #f80707;
     display: flex;
     flex-direction: column;
     padding: 5px;
@@ -101,6 +101,7 @@ nav {
 }
 
 .search-form{
+    background-color: green;
     input{
         width: 380px;
         border-radius: 5px;
@@ -119,6 +120,8 @@ nav {
     flex-direction: row;
 }
 .filters-form {
+    margin-left: -20px;
+    background-color: #ff6600;
     display: flex;
     .filter{
         display: flex;

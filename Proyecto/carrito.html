@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiaso</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <!-- Preconexión para optimizar carga de fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes Google: Bebas Neue y Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!--Icono de pestaña de la pagina-->
+    <link rel="icon" type="image/x-icon" href="./iconos/icono-pagina.ico">
+</head>
+
+<body>
+    <header>
+        <!--Menú de navegación-->
+        <button class="menu-toggle" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="menu">
+                <li><a href="venta.html">Vender</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Marca y eslogan-->
+    <div class="main-title">
+   <h1>Cambiaso</h1>
+        <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
+    </div>
+    <main>
+
+         <!--Carrito de compras-->
+        <section class="shopping-cart" id="shopping-cart">
+            <div class="cards-cart">
+                <div class="card-cart">
+                    <img src="./imagenes/Cortadoradecesped.webp" width="200" height="200" alt="Cortadora de Cesped">
+                    <h3>Cortadora de Césped</h3>
+                    <h3>$29000</h3>
+                    <button class="button">Eliminar</button>          
+                </div>       
+                <div class="card-cart">
+                    <img src="./imagenes/tablet.png" width="200" height="200" alt="Tablet">
+                    <h3>Tablet Samsung </h3>
+                    <h3>$100000</h3>
+                    <button class="button">Eliminar</button>
+                </div>
+                <div class="card-cart">
+                    <img src="./imagenes/Cocina.webp" width="200" height="200" alt="Cocina">
+                    <h3>Cocina a gas</h3> 
+                    <h3>$530000</h3>
+                    <button class="button">Eliminar</button>
+                </div>
+            </div>
+            <div class="pay-card">
+                <h1>Detalle de Compra</h1>
+                <div class="total-container"> 
+                    <h3>Total:</h3>
+                    <h3>$659000</h3>
+                </div>   
+                <button>Pagar</button>
+            </div>  
+        </section> 
+
+    </main>
+     <!--Footer-->
+    <footer>
+        <div class="copyright">
+        <p>© 2025 Cambiaso. Todos los derechos reservados.</p>
+        <p>Hecho en Argentina.</p>
+        </div>
+        <div class="redes">
+            <a href="#"><img src="./iconos/facebook.png" alt="Facebook">CambiasoArg</a>
+            <a href="#"><img src="./iconos/instagram.png" alt="Instagram">CambiasoArg</a>
+            <a href="#"><img src="./iconos/twitter.png" alt="Twitter">CambiasoArg</a>
+        </div>
+        <div class="contactdata">
+          <p>Email: contacto@cambiaso.com</p>
+          <p>Teléfono: +54 11 1234-5678</p>
+          <p>"Lo que no usás, puede ser útil para alguien más."</p>
+        </div>
+    </footer>
+    <script src="./scripts/menu.js"></script>
+</body>
+</html>
