@@ -38,8 +38,10 @@ function createProductCard(product) {
     img.src = product.image;
     img.alt = product.name;
 
+    const precioFormateado =product.price.toLocaleString("es-AR");
     const price = document.createElement('h3');
-    price.textContent = `$${product.price}`;
+    price.textContent = `$${precioFormateado}`;
+ 
 
     const title = document.createElement('h3');
     title.textContent = product.name;
@@ -48,7 +50,7 @@ function createProductCard(product) {
     description.textContent = product.description;
 
     const button = document.createElement('button');
-    button.textContent = 'Agregar al carrito';
+    button.textContent = 'Comprar';
 
 
 

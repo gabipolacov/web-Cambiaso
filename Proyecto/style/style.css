@@ -39,7 +39,7 @@ header{
 
 /* Estilos del menú de navegación */
 nav {
-    background-color: rgb(0, 0, 0);
+    background-color: #171717;
     text-align: center;
     padding: 10px;
 }
@@ -52,13 +52,12 @@ nav {
     position: sticky;
     align-items: center;
     padding: 10px;
-    background-color: #000000;
+    background-color: #171717;
     li{
         display: inline;
         padding: 20px;
-        background-color: rgb(0, 0, 0);
+        background-color: #171717;
         justify-content: center;
-        background-color: #000000;
         a{
             text-decoration: none; /* Quita el subrayado */
             color: white; 
@@ -67,7 +66,7 @@ nav {
             margin: 5px; 
             font-family: "Bebas Neue", sans-serif;
             font-weight: 200;
-            background-color: rgb(0, 0, 0);     
+            background-color: #171717;     
         }     
     }
 }
@@ -188,11 +187,11 @@ nav {
     flex-direction: column;
     justify-content: space-between;
     border-radius: 6px;
-    border-color: 1px rgb(58, 56, 53) solid;
+    border-color: 2px rgb(58, 56, 53) solid;
     padding:10px;
     margin: 10px; 
-    background-color: #dbd5d5;
-    box-shadow: 0px 0px 6px rgb(167, 161, 161);
+    background-color: #f3f2f2;
+    box-shadow: 0px 0px 1px rgb(167, 161, 161);
     align-self: center;
     height: 90%;/* asegura que crezca uniformemente */
     p{
@@ -334,8 +333,8 @@ button{
     margin: 10px;
     align-self: flex-end;
     font-size:16px;
-    background-color: #d4cbcb;
-    color: rgb(0, 0, 0);
+    background-color: #000000;
+    color: rgb(255, 255, 255);
     border:  none;
     cursor: pointer;
     transition: all 0.3s ease;
