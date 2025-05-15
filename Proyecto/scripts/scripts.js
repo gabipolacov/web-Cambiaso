@@ -44,32 +44,29 @@ function createProductCard(product) {
     const title = document.createElement('h3');
     title.textContent = product.name;
 
-    const category = document.createElement('h3');
-    category.textContent = product.category;
-
     const description = document.createElement('p');
     description.textContent = product.description;
 
     const button = document.createElement('button');
-    button.textContent = 'Agegar al carrito';
+    button.textContent = 'Agregar al carrito';
+
+
 
     //Se inserta el contenido en la tarjeta
     card.appendChild(img);
     card.appendChild(title);
     card.appendChild(price);
-    card.appendChild(category);
-    card.appendChild(description);
     card.appendChild(button);
 
     return card;
 }
 
 //Se recorre el array de productos para generar cada tarjeta
-products.forEach( product => {
+products.forEach( product=> {
     const card = createProductCard(product);
     grid.appendChild(card);
 });
-products.forEach( product => {
+products.forEach( product=> {
     const card = createProductCard(product);
     grid.appendChild(card);
 });

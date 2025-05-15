@@ -92,16 +92,18 @@ nav {
 
 /* Estilos del buscador */
 .search{
-    background-color: #f80707;
+    background-color: #000000;
     display: flex;
     flex-direction: column;
     padding: 5px;
     align-items: center;
     justify-content: center;
+    button{
+        box-shadow: none;
+    }
 }
 
 .search-form{
-    background-color: green;
     input{
         width: 380px;
         border-radius: 5px;
@@ -120,8 +122,7 @@ nav {
     flex-direction: row;
 }
 .filters-form {
-    margin-left: -20px;
-    background-color: #ff6600;
+    width: 470px;
     display: flex;
     .filter{
         display: flex;
@@ -191,7 +192,7 @@ nav {
     padding:10px;
     margin: 10px; 
     background-color: #dbd5d5;
-    box-shadow: 5px 5px 10px rgb(112, 104, 104);
+    box-shadow: 0px 0px 6px rgb(167, 161, 161);
     align-self: center;
     height: 90%;/* asegura que crezca uniformemente */
     p{
@@ -209,7 +210,16 @@ nav {
         filter:brightness(1.1); /* Quita el fondo blanco de una imagen */
         mix-blend-mode: multiply;
     }
+   
 }
+
+ .card:hover{
+    transform: scale(1.05); /* Aumenta un 5% */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave al hacer hover: escala y sombra en 0.3s con efecto ease */
+    }
+
 
 /* Estilos para la seccion de carrito */
 
@@ -250,6 +260,7 @@ nav {
     }
 }
 
+
 .pay-card{
     display: flex;
     flex-direction: column;
@@ -289,7 +300,6 @@ form input,
 form textarea,
 form label,
 form select {
-    padding: 2px;
     margin: 7px;
     font-size: 16px;
     font-family: "Roboto", sans-serif;
@@ -299,6 +309,10 @@ form select {
     resize: none;
     font-weight: bold;
   }
+
+  form select {
+  width: 92.5%;
+}
 
 form input,
 form textarea, form select{
@@ -315,17 +329,17 @@ input:focus, textarea:focus{
 /* Estilos para todos los botones */
 button{
     width:fit-content;  
-    font-weight: semi-bold;
     padding:10px;
     border-radius: 7px;
     margin: 10px;
     align-self: flex-end;
-    font-size:19px;
-    background-color: #000000;
-    color: rgb(255, 255, 255);
-    border: none;
+    font-size:16px;
+    background-color: #d4cbcb;
+    color: rgb(0, 0, 0);
+    border:  none;
     cursor: pointer;
     transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgb(163, 154, 154);
 }
 
 button:hover{
@@ -337,6 +351,7 @@ button:hover{
 
 /* Estilos de la seccion del formulario de venta */
 .sellform{
+    
     display: grid;
     padding: 10px;
     grid-template-columns: 50% 50%;
@@ -369,9 +384,10 @@ button:hover{
 /*Estilos de la sección promociones*/
 .sales{
     display: flex;
-    background-color: #000000;
     justify-content: center;
     overflow: hidden;
+    height: 450px;
+
 }
 
 .sales ul {
@@ -386,11 +402,11 @@ button:hover{
     flex: 0 0 100%;  /*No crece ni se encoge, ocupa siempre el 100% del ancho del contenedor */
     display: flex;
     justify-content: center;
-    background-color: #f0f0f0;
   }
 
   .sales ul li img{
-    width:100%;
+    width: 100%;
+    object-fit: cover;
     height: 100%;
   }
 
@@ -569,6 +585,10 @@ html{
         width:280px;
     }
 
+    .filters-form{
+        width:380px;
+    }
+
     .gallery{
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
@@ -667,14 +687,19 @@ html{
         font-size: 50px;    
     }
 
+    .search{
+        align-items: flex-start;
+    }
+
     .search-form input{
         width:180px;
+        
      }
 
     .filters-form {
-        margin-right: 55px;
        display: flex;
        flex-direction: column;
+       width: fit-content;
      }
 
     .gallery{
