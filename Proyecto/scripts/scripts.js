@@ -68,15 +68,11 @@ products.forEach( product=> {
     const card = createProductCard(product);
     grid.appendChild(card);
 });
-products.forEach( product=> {
-    const card = createProductCard(product);
-    grid.appendChild(card);
-});
 
 
 //-----------------------------------------------------------
 //Agregar productos al gallery
-const form = document.getElementById('sell-form');
+ const form = document.getElementById('sell-form');
 
 form.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -96,7 +92,7 @@ grid.appendChild(card);
 
 // Resetea el formulario
 form.reset();
-});
+}); 
 
 //Agregar productos al Carrito
 

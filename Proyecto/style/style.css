@@ -190,7 +190,7 @@ nav {
     border-color: 2px rgb(58, 56, 53) solid;
     padding:10px;
     margin: 10px; 
-    background-color: #f3f2f2;
+    background-color: #ffffff;
     box-shadow: 0px 0px 1px rgb(167, 161, 161);
     align-self: center;
     height: 90%;/* asegura que crezca uniformemente */
@@ -291,6 +291,65 @@ nav {
     position: absolute;
     bottom: 10px;
     right: 10px;
+}
+/* Estilos para detalle de producto */
+
+/* Estilo de la sección */
+.details{
+    display: grid;/*Uso de grid*/
+    grid-template-columns: repeat( 1, 1fr); /*Columnas en grid*/
+    padding:20px;
+    gap:10px;
+    justify-items: center;
+    margin: 10px;
+}
+
+/* Estilos de la tarjeta */
+.details-card{  
+    display:grid; 
+    grid-template-columns: repeat( 2, 1fr); /*Columnas en grid*/
+    border-radius: 6px;
+    border-color: 2px rgb(58, 56, 53) solid;
+    padding:10px;
+    margin: 10px; 
+    background-color: #ffffff;
+    box-shadow: 0px 0px 1px rgb(167, 161, 161);
+    align-self: center;
+    height: 90%;/* asegura que crezca uniformemente */
+    button{
+        place-self: end end;
+        grid-column-start: 2;
+    }
+   
+}
+
+.details-text{
+    grid-column-start: 2;
+    p{
+        font-size: 16px;
+        padding: 5px;
+    }
+    h3{
+        text-align: center;
+        padding: 8px;
+        font-size: 23px;
+    }
+
+}
+
+.details-image{
+    background-color: red;
+    place-self: end end;
+    img{
+
+        height:auto;
+        width: 70%;
+       place-self: center;
+        border-radius: 6px;
+        filter:brightness(1.1); /* Quita el fondo blanco de una imagen */
+        mix-blend-mode: multiply;
+
+    }
 }
 
 

@@ -37,35 +37,22 @@
         <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
     </div>
     <main>
-        <!--Sección venta de productos-->
-        <section class="sellform" id="sellform">        
-            <h1>Vende lo que no necesitás</h1>
-            <h3>Completá los campos para publicar el artículo que quieras vender.</h3>          
-            <form id="sell-form">
-                <label for="title">Título del producto:</label><br>
-                <input type="text" id="title" name="title"><br>
-                <label for="price">Precio:</label><br>
-                <input type="number" id="price" name="price" min="0" value="0"><br>
-                <label for="category">Categoría:</label><br>
-                <select id="category" name="category"><br> 
-                    <option value="muebles">Muebles</option>
-                    <option value="jardin">Jardín</option>
-                    <option value="electrodomestico">Electrodoméstico</option>
-                    <option value="tecnologia">Tecnología</option>
-                    <option value="indumentaria">Indumentaria</option>
-                    <option value="juguete">Juguetes</option>
-                    <option value="cocina">Cocina</option>
-                    <option value="inmueble">Inmuebles</option>
-                    <option value="vehiculo">Vehículos</option>
-                </select><br>
-                <label for="description">Descripción:</label><br>
-                <textarea id="description" name="description" rows="10" cols="30"></textarea><br> 
-                <label for="image">Subir fotos:</label><br>
-                <input type="file" id="image" name="image" accept="image/*"><br><br>
-                <img id="preview" src="" alt="Vista previa" style="max-width: 300px; display: none;">
-                <button type="submit" method="POST" class="btn-add-products">Publicar</button>
-            </form>       
-        </section>
+
+         <!--Detalle de Producto-->
+        <section class="details" id="details">
+            <div class="details-card">
+                <div class="details-image">
+                    <img src="./imagenes/Cortadoradecesped.webp" width="200" height="200" alt="Cortadora de Cesped">
+                </div>
+                <div class="details-text">
+                    <h3>Cortadora de Césped</h3>
+                    <h3>$29000</h3><br>
+                    <p>Esta es una cortadora de césped</p>        
+                </div>  
+                <button class="button">Agregar al Carrito</button>  
+                <button class="button">Comprar ahora</button> 
+            </div>      
+        </section> 
     </main>
      <!--Footer-->
     <footer>
@@ -84,8 +71,6 @@
           <p>"Lo que no usás, puede ser útil para alguien más."</p>
         </div>
     </footer>
-    <script src="./scripts/scripts.js"></script>
     <script src="./scripts/menu.js"></script>
-
 </body>
 </html>
