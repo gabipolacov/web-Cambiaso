@@ -1,28 +1,29 @@
 
-//Se genera el array de productos
-const products = [
-    {
-        image: "./imagenes/Cortadoradecesped.webp",
-        price: 29000,
-        name: "Cortadora de Césped",
-        category:"Jardin",
-        description: "¡Mantené tu jardín impecable con esta potente cortadora de césped! Funciona perfectamente, ideal para jardines medianos y grandes. Motor eficiente, cuchillas afiladas y fácil de manejar.",
-    },
-    {
-        image: "./imagenes/tablet.png",
-        price:100000,
-        name: "Tablet Samsung",
-        category:"Tecnologia",
-        description: "¡Potencia y comodidad en tus manos! Esta tablet es ideal para estudiar, trabajar o disfrutar de tus series y juegos favoritos. Pantalla nítida, batería de larga duración y rendimiento fluido.",
-    },
-    {
-        image: "./imagenes/Cocina.webp",
-        price:530000,
-        name: "Cocina",
-        category: "Electrodomestico",
-        description: "¡Renová tu cocina con este increíble modelo! Perfecta para preparar tus comidas favoritas con facilidad y eficiencia. Funciona a la perfección, con hornallas potentes y horno parejo.",
-    },
-];
+const API_TOKEN = 'patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
+const BASE_ID = 'apppfuJapye8WbhBo';
+const TABLE_NAME = 'Products';
+const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+let productsList = [];
+
+
+async function fetchProducts(){
+    const response = await fetch(API_URL, {
+        method: 'GET',
+        headers:{
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json'
+        },
+    });
+    const data = await response.json();
+    productsList = data.records.map(record => record.fields);
+    productsList.forEach( product=> {
+    const card = createProductCard(product);
+    grid.appendChild(card);
+});
+    console.log(data);
+}
+
+
 
 //Se ubica el selector donde van las cards
 const grid = document.querySelector('.gallery');
@@ -53,7 +54,6 @@ function createProductCard(product) {
     button.textContent = 'Comprar';
 
 
-
     //Se inserta el contenido en la tarjeta
     card.appendChild(img);
     card.appendChild(title);
@@ -63,36 +63,32 @@ function createProductCard(product) {
     return card;
 }
 
-//Se recorre el array de productos para generar cada tarjeta
-products.forEach( product=> {
-    const card = createProductCard(product);
-    grid.appendChild(card);
-});
+fetchProducts();
 
 
 //-----------------------------------------------------------
 //Agregar productos al gallery
  const form = document.getElementById('sell-form');
 
-form.addEventListener('submit', function(event) {
-    event.preventDefault();
+// form.addEventListener('submit', function(event) {
+//     event.preventDefault();
 
-    const newProduct = { 
-        image: document.getElementById('image').value,
-        price: document.getElementById('price').value,
-        name: document.getElementById('title').value,
-        category: document.getElementById('category').value,
-        description: document.getElementById('description').value,
-    };
+//     const newProduct = { 
+//         image: document.getElementById('image').value,
+//         price: document.getElementById('price').value,
+//         name: document.getElementById('title').value,
+//         category: document.getElementById('category').value,
+//         description: document.getElementById('description').value,
+//     };
 
-    const card = createProductCard(newProduct);
+//     const card = createProductCard(newProduct);
 
-// Agrega la tarjeta al contenedor
-grid.appendChild(card);
+// // Agrega la tarjeta al contenedor
+// grid.appendChild(card);
 
-// Resetea el formulario
-form.reset();
-}); 
+// // Resetea el formulario
+// form.reset();
+// }); 
 
 //Agregar productos al Carrito
 
@@ -115,7 +111,7 @@ function renderProducts(list){
 }
 
 function filterProducts(text, cat, min, max){
-    const filteredProducts = products.filter( product => {
+    const filteredProducts = productsList.filter( product => {
 
         if(cat.includes("todas") && min == 0 && max == 0){
         return product.name.toLowerCase().includes(text.toLowerCase());
@@ -137,7 +133,13 @@ function filterProducts(text, cat, min, max){
 
     });
     grid.innerHTML = '';
-    renderProducts(filteredProducts);
+    if (filteredProducts.length === 0){
+        grid.innerHTML = '<h3 id="resultado">No se encontraron resultados</h3>';
+    }
+    else{
+        renderProducts(filteredProducts);
+    }
+   
 }
 
     searchInputBtn.addEventListener('click', (e) => {
@@ -149,7 +151,5 @@ function filterProducts(text, cat, min, max){
         const maximoInput = precioMax.value;
 
         filterProducts(valorInput, categoryInput, minimoInput, maximoInput);
-        console.log(minimoInput, maximoInput);
     });
 
-//renderProducts(products);
