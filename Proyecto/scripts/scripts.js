@@ -15,14 +15,28 @@ async function fetchProducts(){
         },
     });
     const data = await response.json();
-    productsList = data.records.map(record => record.fields);
+    productsList = data.records.map(record => record.fields); //Transforma el array de Airtable (data.records) en un array más limpio, donde cada product tiene solo name, price, image, etc., tal como espera createProductCard().
     productsList.forEach( product=> {
     const card = createProductCard(product);
     grid.appendChild(card);
 });
-    console.log(data);
 }
 
+async function addProduct(product){
+     const newProduct = {
+        fields: product
+    };
+    const response = await fetch(API_URL, {
+        method: 'POST',
+        headers:{
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newProduct)
+    }); 
+    const data = await response.json();
+    console.log(data);
+}
 
 
 //Se ubica el selector donde van las cards
@@ -36,7 +50,11 @@ function createProductCard(product) {
     card.classList.add('card');
 
     const img = document.createElement('img');
-    img.src = product.image;
+    if (product.image && product.image.length > 0) {
+    img.src = product.image[0].url;
+    } else {
+    img.src = './imagenes/predeterminada.jpg';
+    }
     img.alt = product.name;
 
     const precioFormateado =product.price.toLocaleString("es-AR");
@@ -70,25 +88,20 @@ fetchProducts();
 //Agregar productos al gallery
  const form = document.getElementById('sell-form');
 
-// form.addEventListener('submit', function(event) {
-//     event.preventDefault();
+ form.addEventListener('submit', async(event) =>{
+     event.preventDefault();
 
-//     const newProduct = { 
-//         image: document.getElementById('image').value,
-//         price: document.getElementById('price').value,
-//         name: document.getElementById('title').value,
-//         category: document.getElementById('category').value,
-//         description: document.getElementById('description').value,
-//     };
-
-//     const card = createProductCard(newProduct);
-
-// // Agrega la tarjeta al contenedor
-// grid.appendChild(card);
-
-// // Resetea el formulario
-// form.reset();
-// }); 
+     const formProduct = { 
+            name: document.getElementById('title').value,
+            category: document.getElementById('category').value,
+            description: document.getElementById('description').value,
+            price: parseFloat(document.getElementById('price').value),
+            image: document.getElementById('image').value,
+     };
+    await addProduct(formProduct);
+    //Resetea el formulario
+    form.reset();
+ }); 
 
 //Agregar productos al Carrito
 
