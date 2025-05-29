@@ -4,8 +4,12 @@ const BASE_ID = 'apppfuJapye8WbhBo';
 const TABLE_NAME = 'Products';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 let productsList = [];
+//Se ubica el selector donde van las cards
+const grid = document.querySelector('.gallery');
+const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
+fetchProducts();
 
-
+//Función para obtener los productos de Airtable
 async function fetchProducts(){
     const response = await fetch(API_URL, {
         method: 'GET',
@@ -21,26 +25,6 @@ async function fetchProducts(){
     grid.appendChild(card);
 });
 }
-
-async function addProduct(product){
-     const newProduct = {
-        fields: product
-    };
-    const response = await fetch(API_URL, {
-        method: 'POST',
-        headers:{
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newProduct)
-    }); 
-    const data = await response.json();
-    console.log(data);
-}
-
-
-//Se ubica el selector donde van las cards
-const grid = document.querySelector('.gallery');
 
 //Se crea la función para generar las tarjetas
 function createProductCard(product) {
@@ -69,7 +53,15 @@ function createProductCard(product) {
     description.textContent = product.description;
 
     const button = document.createElement('button');
-    button.textContent = 'Comprar';
+    button.textContent = 'Agregar al carrito';
+     button.addEventListener('click', () => {
+        const exists = cartProducts.find(p => p.name === product.name);
+        if (!exists){
+            cartProducts.push(product);
+            localStorage.setItem('cart', JSON.stringify(cartProducts));
+            console.log('Producto agregado al carrito');
+        }
+    });
 
 
     //Se inserta el contenido en la tarjeta
@@ -81,32 +73,7 @@ function createProductCard(product) {
     return card;
 }
 
-fetchProducts();
-
-
 //-----------------------------------------------------------
-//Agregar productos al gallery
- const form = document.getElementById('sell-form');
-
- form.addEventListener('submit', async(event) =>{
-     event.preventDefault();
-
-     const formProduct = { 
-            name: document.getElementById('title').value,
-            category: document.getElementById('category').value,
-            description: document.getElementById('description').value,
-            price: parseFloat(document.getElementById('price').value),
-            image: document.getElementById('image').value,
-     };
-    await addProduct(formProduct);
-    //Resetea el formulario
-    form.reset();
- }); 
-
-//Agregar productos al Carrito
-
-//Quitar productos del Carrito
-
 
 //Búsqueda
 const searchInput = document.querySelector('#search-product');
@@ -116,7 +83,6 @@ const precioMax = document.querySelector('#filter-max');
 const precioMin = document.querySelector('#filter-min');
 
 function renderProducts(list){
-
     list.forEach( product => {
         const card = createProductCard(product);
         grid.appendChild(card);
