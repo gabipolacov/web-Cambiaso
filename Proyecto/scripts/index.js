@@ -8,7 +8,6 @@ let productsList = [];
 const grid = document.querySelector('.gallery');
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
 fetchProducts();
-
 //Función para obtener los productos de Airtable
 async function fetchProducts(){
     const response = await fetch(API_URL, {

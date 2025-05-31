@@ -1,5 +1,23 @@
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
 
+cartVerify(cartProducts);
+function cartVerify(cartProducts){
+if (cartProducts.length === 0){
+    const shoppingCart = document.getElementById('shopping-cart');
+    shoppingCart.innerHTML = '';
+
+    const nullMessage = document.createElement('h3');
+    nullMessage.textContent = 'No tienes ningún producto en tu carrito';
+    shoppingCart.appendChild(nullMessage);
+}
+else{
+
+    renderPayCard(cartProducts);
+    renderCartProducts(cartProducts);
+
+}
+}
+
 function createProductCartCard(product) {
     const card = document.createElement('div');
     card.classList.add('card-cart');
@@ -23,10 +41,10 @@ function createProductCartCard(product) {
     button.textContent = 'Eliminar';
     button.addEventListener('click', () => {
         const exists = cartProducts.findIndex(p => p.name === product.name);
-        if (exists !== -1) {
+        if (exists !== -1) { //!== -1 significa: "si existe (porque si no existiera, el índice sería -1)"
             cartProducts.splice(exists, 1); //Elimina 1 elemento del array cartProducts a partir del índice encontrado.
             localStorage.setItem('cart', JSON.stringify(cartProducts));
-            renderCartProducts(cartProducts);
+            cartVerify(cartProducts);
         }
     });
     card.appendChild(img);
@@ -49,23 +67,65 @@ function renderCartProducts(list){
 }
 
 
-renderCartProducts(cartProducts);
+function renderPayCard(products) {
+    const shoppingCart = document.getElementById('shopping-cart');
 
-function addPayCard(product) {
-    const card = document.createElement('ul');
-    card.classList.add('product-list');
+    const payCard = document.createElement('div');
+    payCard.classList.add('pay-card');
+    shoppingCart.appendChild(payCard);
 
-    const title = document.createElement('p');
-    title.textContent = product.name;
+    const cardTitle = document.createElement('h1');
+    cardTitle.textContent = 'Detalle de Compra';
+    payCard.appendChild(cardTitle);
 
-    const card1 = document.createElement('ul');
-    card1.classList.add('price-list');
-    const precioFormateado =product.price.toLocaleString("es-AR");
-    const price = document.createElement('h4');
-    price.textContent = `$${precioFormateado}`;
+    const lists = document.createElement('div');
+    payCard.appendChild(lists);
+    lists.classList.add('lists-container');
 
-    card.appendChild(title);
-    card1.appendChild(price);
+    const productList = document.createElement('ul');
+    lists.appendChild(productList);
+    productList.classList.add('product-list');
 
-    return card;
+    const priceList = document.createElement('ul');
+    lists.appendChild(priceList);
+    priceList.classList.add('price-list');
+
+    const totalContainer = document.createElement('div');
+    payCard.appendChild(totalContainer);
+    totalContainer.classList.add('total-container');
+
+    const totalText = document.createElement('h3');
+    totalText.textContent = 'Total:';
+    totalContainer.appendChild(totalText);
+
+    const payButton = document.createElement('button');
+    payButton.textContent = 'Pagar';
+    payCard.appendChild(payButton);
+
+
+    // Limpiamos las listas anteriores
+    productList.innerHTML = '';
+    priceList.innerHTML = '';
+
+    let precioTotal = 0; 
+    precioTotal = products.reduce((total, product) => total + product.price, 0);
+
+    const totalFormateado = precioTotal.toLocaleString("es-AR");
+    const totalNumber = document.createElement('h3');
+    totalNumber.textContent = `$${totalFormateado}`
+    totalContainer.appendChild(totalNumber);
+
+    products.forEach(product => {
+        const liName = document.createElement('li');
+        liName.textContent = product.name;
+
+        const liPriceFormateado = product.price.toLocaleString("es-AR");
+        const liPrice = document.createElement('li');
+        liPrice.textContent = `$${liPriceFormateado}`;
+
+        productList.appendChild(liName);
+        priceList.appendChild(liPrice);
+
+  });
+
 }
