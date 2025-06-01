@@ -4,10 +4,14 @@ const BASE_ID = 'apppfuJapye8WbhBo';
 const TABLE_NAME = 'Products';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 let productsList = [];
+let productId=0;
 //Se ubica el selector donde van las cards
 const grid = document.querySelector('.gallery');
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
+
 fetchProducts();
+
+
 //Función para obtener los productos de Airtable
 async function fetchProducts(){
     const response = await fetch(API_URL, {
@@ -31,6 +35,10 @@ function createProductCard(product) {
     //Se crea la tarjeta y cada uno de sus componentes
     const card = document.createElement('div');
     card.classList.add('card');
+    card.addEventListener('click', () => {
+       window.location.href = `detalle.html?Id=${product.Id}`;
+
+    });
 
     const img = document.createElement('img');
     if (product.image && product.image.length > 0) {

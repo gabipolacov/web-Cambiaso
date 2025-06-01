@@ -22,9 +22,6 @@ header{
 }
 /*Estilo de los subtítulos de cada sección */
 
-main{
-
-}
  h2{
     text-align: center;
     font-size: 40px;
@@ -233,7 +230,6 @@ nav {
     padding:15px;
     margin: 10px;
     justify-content: center;
-    height: 100%;
 }
 
 .cards-cart{
@@ -271,6 +267,7 @@ nav {
 }
 
 
+
 .pay-card{
     background-color: #ff6600;
     display: flex;
@@ -282,7 +279,6 @@ nav {
     position: relative; /* Se mantiene en su posición normal dentro del flujo del documento, pero sirve como referencia para el posicionamiento de sus hijos (.pay-card button) */
     /*background-color:  #e2dada;*/
     box-shadow: 5px 5px 10px rgb(112, 104, 104);
-    width: 20%;
 
     h1{
         text-align: center;
@@ -292,22 +288,19 @@ nav {
     .lists-container {
         display: flex;
         justify-content: space-between;
+        padding: 5px;;
     }
     .product-list{
-        background-color: #ffff00;
         list-style: none;
         li{
             padding: 3px;
         }
-
     }
     .price-list{
-        background-color: #00ff40;
         list-style: none;
         li{
             padding: 3px;
         }
-
     }
 }
 
@@ -315,9 +308,8 @@ nav {
     display: flex;
     align-items: left;
     justify-content: space-between; /* Distribuye los elementos dejando el máximo espacio entre ellos */
-    gap: 10px;
+   padding: 10px;
     height: fit-content;
-    background-color: #6600ff;
 }
 
 .pay-card button {
@@ -328,12 +320,7 @@ nav {
 
 /* Estilo de la sección */
 .details{
-    display: grid;/*Uso de grid*/
-    grid-template-columns: repeat( 1, 1fr); /*Columnas en grid*/
-    padding:20px;
-    gap:10px;
-    justify-items: center;
-    margin: 10px;
+    background-color: #00ff40;
 }
 
 /* Estilos de la tarjeta */
@@ -343,11 +330,11 @@ nav {
     border-radius: 6px;
     border-color: 2px rgb(58, 56, 53) solid;
     padding:10px;
-    margin: 10px; 
+    margin: 30px; 
     background-color: #ffffff;
     box-shadow: 0px 0px 1px rgb(167, 161, 161);
-    align-self: center;
     height: 90%;/* asegura que crezca uniformemente */
+    width: 70%;
     button{
         place-self: end end;
         grid-column-start: 2;
@@ -356,6 +343,7 @@ nav {
 }
 
 .details-text{
+    background-color: #00ff40;
     grid-column-start: 2;
     p{
         font-size: 16px;
@@ -370,17 +358,14 @@ nav {
 }
 
 .details-image{
-    background-color: red;
-    place-self: end end;
+    background-color: #da6b6b;
+    
     img{
-
         height:auto;
-        width: 70%;
-       place-self: center;
+        width: 50%;
         border-radius: 6px;
         filter:brightness(1.1); /* Quita el fondo blanco de una imagen */
         mix-blend-mode: multiply;
-
     }
 }
 

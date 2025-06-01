@@ -1,5 +1,4 @@
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
-
 cartVerify(cartProducts);
 function cartVerify(cartProducts){
 if (cartProducts.length === 0){
@@ -11,12 +10,11 @@ if (cartProducts.length === 0){
     shoppingCart.appendChild(nullMessage);
 }
 else{
-
     renderPayCard(cartProducts);
     renderCartProducts(cartProducts);
+    }
+}
 
-}
-}
 
 function createProductCartCard(product) {
     const card = document.createElement('div');
@@ -68,11 +66,12 @@ function renderCartProducts(list){
 
 
 function renderPayCard(products) {
-    const shoppingCart = document.getElementById('shopping-cart');
+    const payCardContainer = document.getElementById('pay-card-container');
+    payCardContainer.innerHTML='';
 
     const payCard = document.createElement('div');
     payCard.classList.add('pay-card');
-    shoppingCart.appendChild(payCard);
+    payCardContainer.appendChild(payCard);
 
     const cardTitle = document.createElement('h1');
     cardTitle.textContent = 'Detalle de Compra';
@@ -101,11 +100,6 @@ function renderPayCard(products) {
     const payButton = document.createElement('button');
     payButton.textContent = 'Pagar';
     payCard.appendChild(payButton);
-
-
-    // Limpiamos las listas anteriores
-    productList.innerHTML = '';
-    priceList.innerHTML = '';
 
     let precioTotal = 0; 
     precioTotal = products.reduce((total, product) => total + product.price, 0);
