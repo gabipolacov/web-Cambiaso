@@ -1,13 +1,15 @@
 
 const params = new URLSearchParams(window.location.search);
 const Id = parseInt(params.get('Id'));
+ const detailSection = document.getElementById('details');
 
 const API_TOKEN = 'patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
 const BASE_ID = 'apppfuJapye8WbhBo';
 const TABLE_NAME = 'Products';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
-fetchProduct();
+
+fetchProduct(); 
 
 //Función para obtener los productos de Airtable
 async function fetchProduct(){
@@ -21,14 +23,13 @@ async function fetchProduct(){
     });
     const data = await response.json();
     product = data.records.find(record => record.fields.Id === Id); //Transforma el array de Airtable (data.records) en un array más limpio, donde cada product tiene solo name, price, image, etc., tal como espera createProductCard().
-    console.log(data.records.map(r => r.fields.Id)); 
-    console.log(product);
-    createDetailCard(product);
+    const detailCard = createDetailCard(product);
+    detailSection.appendChild(detailCard);
 }
 
 function createDetailCard(product){
     const fields = product.fields;
-    const detailSection = document.getElementById('details');
+   
 
     const card = document.createElement('div');
     card.classList.add('details-card');
@@ -76,5 +77,7 @@ function createDetailCard(product){
             console.log('Producto agregado al carrito');
         }
     });
+
+    return card;
 
 }

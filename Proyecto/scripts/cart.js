@@ -6,7 +6,7 @@ if (cartProducts.length === 0){
     shoppingCart.innerHTML = '';
 
     const nullMessage = document.createElement('h3');
-    nullMessage.textContent = 'No tienes ningún producto en tu carrito';
+    nullMessage.innerHTML = 'No tienes ningún producto en tu carrito. <br>Para agregar un producto haz click en agregar al carrito en nuestro catálogo de productos.';
     shoppingCart.appendChild(nullMessage);
 }
 else{
@@ -38,6 +38,7 @@ function createProductCartCard(product) {
     const button = document.createElement('button');
     button.textContent = 'Eliminar';
     button.addEventListener('click', () => {
+        
         const exists = cartProducts.findIndex(p => p.name === product.name);
         if (exists !== -1) { //!== -1 significa: "si existe (porque si no existiera, el índice sería -1)"
             cartProducts.splice(exists, 1); //Elimina 1 elemento del array cartProducts a partir del índice encontrado.

@@ -61,7 +61,8 @@ function createProductCard(product) {
 
     const button = document.createElement('button');
     button.textContent = 'Agregar al carrito';
-     button.addEventListener('click', () => {
+     button.addEventListener('click', (e) => {
+         e.stopPropagation(); // detiene que el click siga subiendo al contenedor
         const exists = cartProducts.find(p => p.name === product.name);
         if (!exists){
             cartProducts.push(product);
