@@ -22,7 +22,7 @@ async function fetchProducts(){
         },
     });
     const data = await response.json();
-    productsList = data.records.map(record => record.fields); //Transforma el array de Airtable (data.records) en un array más limpio, donde cada product tiene solo name, price, image, etc., tal como espera createProductCard().
+    productsList = data.records.map(record => record.fields); //Transforma el array de Airtable (data.records) en un array donde cada product tiene solo name, price, image, como espera createProductCard().
     productsList.forEach( product=> {
     const card = createProductCard(product);
     grid.appendChild(card);

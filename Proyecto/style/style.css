@@ -318,10 +318,18 @@ nav {
 }
 
 /* Estilos para todos los formularios */
+
+.payment-options label {
+    background-color: #00ff40;
+  display: flex;
+  align-items:left;
+  width: 20%;
+}
+
 form input,
 form textarea,
 form label,
-form select {
+form select{
     margin: 7px;
     font-size: 16px;
     font-family: "Roboto", sans-serif;

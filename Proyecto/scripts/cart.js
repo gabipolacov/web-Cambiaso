@@ -1,12 +1,14 @@
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
+
 cartVerify(cartProducts);
+
 function cartVerify(cartProducts){
 if (cartProducts.length === 0){
     const shoppingCart = document.getElementById('shopping-cart');
     shoppingCart.innerHTML = '';
 
     const nullMessage = document.createElement('h3');
-    nullMessage.innerHTML = 'No tienes ningún producto en tu carrito. <br>Para agregar un producto haz click en agregar al carrito en nuestro catálogo de productos.';
+    nullMessage.innerHTML= 'No tienes ningún producto en tu carrito. <br>Para agregar un producto haz click en agregar al carrito en nuestro catálogo de productos.';
     shoppingCart.appendChild(nullMessage);
 }
 else{
