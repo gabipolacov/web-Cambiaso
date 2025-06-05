@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Fuentes Google: Bebas Neue y Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <!-- Íconos de Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!--Icono de pestaña de la pagina-->
     <link rel="icon" type="image/x-icon" href="./iconos/icono-pagina.ico">
-    
+
 </head>
 
 <body>
@@ -35,7 +38,7 @@
     </header>
     <!--Marca y eslogan-->
     <div class="main-title">
-   <h1>Cambiaso</h1>
+        <h1>Cambiaso</h1>
         <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
     </div>
     <main>
@@ -44,13 +47,13 @@
             <form class="search-form">
                 <input type="search" placeholder="Buscar..." id="search-product">
                 <button type="submit" class="search-icon" id="btn-search-product">
-                <i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
-                </form>
-           <!--Filtros de búsqueda-->
+                    <i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+            </form>
+            <!--Filtros de búsqueda-->
             <form class="filters-form">
                 <div class="filter">
                     <label for="category-filter" class="filter-label">Categoría</label>
-                    <select name="category-filter" id="category-filter"> 
+                    <select name="category-filter" id="category-filter">
                         <option value="todas" selected>Todas</option>
                         <option value="muebles">Muebles</option>
                         <option value="jardin">Jardín</option>
@@ -64,43 +67,43 @@
                     </select>
                 </div>
                 <div class="filter-prices">
-                <div class="filter">
-                    <label for="filter-max">Máx</label>
-                    <input type="number" name="filter-max" id="filter-max" min="0" value="0">
-                </div>
-                <div class="filter">
-                    <label for="filter-min">Min</label>
-                    <input type="number" name="filter-min" id="filter-min" min="0" value="0">
-                </div>
+                    <div class="filter">
+                        <label for="filter-max">Máx</label>
+                        <input type="number" name="filter-max" id="filter-max" min="0" value="0">
+                    </div>
+                    <div class="filter">
+                        <label for="filter-min">Min</label>
+                        <input type="number" name="filter-min" id="filter-min" min="0" value="0">
+                    </div>
                 </div>
             </form>
         </section>
-        
+
         <!--Muestra de Productos-->
         <section class="gallery">
-            <!--Aca van las tarjetas desde javascript-->           
+            <!--Aca van las tarjetas desde javascript-->
         </section>
 
-         <!--Subtítulo promociones-->
-         <div id="sales-title">
+        <!--Subtítulo promociones-->
+        <div id="sales-title" class="sales-title">
             <h2>Promociones en Cambiaso</h2>
         </div>
 
         <!--Carrusel Promociones-->
-        <section class="sales" id="sales"> 
+        <section class="sales" id="sales">
             <ul>
-                <li><img src="./imagenes/banner.jpg"  alt="Sales Banner" ></li>
-                <li><img src="./imagenes/banner1.jpg"  alt="Sales Banner 1" ></li>
-                <li><img src="./imagenes/banner2.jpg"  alt="Sales Banner 2" ></li>
-              </ul>              
+                <li><img src="./imagenes/banner.jpg" alt="Sales Banner"></li>
+                <li><img src="./imagenes/banner1.jpg" alt="Sales Banner 1"></li>
+                <li><img src="./imagenes/banner2.jpg" alt="Sales Banner 2"></li>
+            </ul>
         </section>
-        
+
     </main>
-     <!--Footer-->
+    <!--Footer-->
     <footer>
         <div class="copyright">
-        <p>© 2025 Cambiaso. Todos los derechos reservados.</p>
-        <p>Hecho en Argentina.</p>
+            <p>© 2025 Cambiaso. Todos los derechos reservados.</p>
+            <p>Hecho en Argentina.</p>
         </div>
         <div class="redes">
             <a href="#"><img src="./iconos/facebook.png" alt="Facebook">CambiasoArg</a>
@@ -108,14 +111,15 @@
             <a href="#"><img src="./iconos/twitter.png" alt="Twitter">CambiasoArg</a>
         </div>
         <div class="contactdata">
-          <p>Email: contacto@cambiaso.com</p>
-          <p>Teléfono: +54 11 1234-5678</p>
-          <p>"Lo que no usás, puede ser útil para alguien más."</p>
+            <p>Email: contacto@cambiaso.com</p>
+            <p>Teléfono: +54 11 1234-5678</p>
+            <p>"Lo que no usás, puede ser útil para alguien más."</p>
         </div>
     </footer>
 
-   <script src="./scripts/index.js"></script>
+    <script src="./scripts/index.js"></script>
     <script src="./scripts/menu.js"></script>
 
 </body>
+
 </html>

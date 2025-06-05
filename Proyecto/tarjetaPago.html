@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiaso</title>
-    <link rel="stylesheet" href="./style/style.css">
+    <link rel="stylesheet" href="./style/pay-card.css">
     <!-- Preconexión para optimizar carga de fuentes de Google -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +31,7 @@
                 <li><a href="venta.html">Vender</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
                 <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="pago.html">Pago</a></li>
             </ul>
         </nav>
     </header>
@@ -40,17 +41,49 @@
         <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
     </div>
     <main>
-
-        <!--Carrito de compras-->
-        <section class="shopping-cart" id="shopping-cart">
-            <div class="cards-cart" id="cards-cart">
-                <!-- Aca van las tarjetas creadas en cart.js-->
-            </div>
-            <div class="pay-card-container" id="pay-card-container">
-                <!-- Aca va la tarjeta de pago creada en cart.js -->
+        <!--Detalle de Producto-->
+        <section id="pay-details" class="pay-details">
+            <div class="pay-details-card" id="pay-details-card">
+            <div class="card-content">
+                <div class="client-details-section">
+                    <h4>Nombre: </h4>
+                    <h4>Apellido: </h4>
+                    <h4>Dirección: </h4>
+                    <h4>Provincia: </h4>
+                    <h4>Localidad: </h4>
+                    <h4>CP: </h4>
+                </div>
+                <div class="client-details-data">
+                    <p>Gabriela</p>
+                    <p>Moreno Polacov</p>
+                    <p>Martín García 153</p>
+                    <p>Córdoba</p>
+                    <p>Córdoba Capital</p>
+                    <p>5000</p>
+                </div>
+             
+                <div class="pay-details-section">
+                    <h4>Tipo de Pago: </h4>
+                    <h4>Nro de Tarjeta: </h4>
+                    <h4>CVV: </h4>
+                    <h4>Titular: </h4>
+                    <h4>DNI: </h4>
+                </div>
+                   <div class="pay-details-data">
+                    <p>Tipo de Pago: </p>
+                    <p>Número de Tarjeta: </p>
+                    <p>CVV: </p>
+                    <p>Titular: </p>
+                    <p>DNI: </p>
+                
+                </div>
+                </div>
+                  <div class="button-group">
+                <button class="button">Editar</button>
+                <button class="button">Pagar</button>
+                </div>
             </div>
         </section>
-
     </main>
     <!--Footer-->
     <footer>
@@ -70,7 +103,7 @@
         </div>
     </footer>
     <script src="./scripts/menu.js"></script>
-    <script src="./scripts/cart.js"></script>
+    <script src="./scripts/details.js"></script>
 </body>
 
 </html>

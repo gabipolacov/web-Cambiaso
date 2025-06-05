@@ -2,18 +2,18 @@ const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
 
 cartVerify(cartProducts);
 
-function cartVerify(cartProducts){
-if (cartProducts.length === 0){
-    const shoppingCart = document.getElementById('shopping-cart');
-    shoppingCart.innerHTML = '';
+function cartVerify(cartProducts) {
+    if (cartProducts.length === 0) {
+        const shoppingCart = document.getElementById('shopping-cart');
+        shoppingCart.innerHTML = '';
 
-    const nullMessage = document.createElement('h3');
-    nullMessage.innerHTML= 'No tienes ningún producto en tu carrito. <br>Para agregar un producto haz click en agregar al carrito en nuestro catálogo de productos.';
-    shoppingCart.appendChild(nullMessage);
-}
-else{
-    renderPayCard(cartProducts);
-    renderCartProducts(cartProducts);
+        const nullMessage = document.createElement('h3');
+        nullMessage.innerHTML = 'No tienes ningún producto en tu carrito. <br>Para agregar un producto haz click en agregar al carrito en nuestro catálogo de productos.';
+        shoppingCart.appendChild(nullMessage);
+    }
+    else {
+        renderPayCard(cartProducts);
+        renderCartProducts(cartProducts);
     }
 }
 
@@ -23,24 +23,24 @@ function createProductCartCard(product) {
     card.classList.add('card-cart');
 
     const img = document.createElement('img');
-   if (product.image && product.image.length > 0) {
-    img.src = product.image[0].url;
+    if (product.image && product.image.length > 0) {
+        img.src = product.image[0].url;
     } else {
-    img.src = './imagenes/predeterminada.jpg';
+        img.src = './imagenes/predeterminada.jpg';
     }
     img.alt = product.title;
 
     const title = document.createElement('p');
     title.textContent = product.name;
 
-    const precioFormateado =product.price.toLocaleString("es-AR");
+    const precioFormateado = product.price.toLocaleString("es-AR");
     const price = document.createElement('h4');
     price.textContent = `$${precioFormateado}`;
 
     const button = document.createElement('button');
     button.textContent = 'Eliminar';
     button.addEventListener('click', () => {
-        
+
         const exists = cartProducts.findIndex(p => p.name === product.name);
         if (exists !== -1) { //!== -1 significa: "si existe (porque si no existiera, el índice sería -1)"
             cartProducts.splice(exists, 1); //Elimina 1 elemento del array cartProducts a partir del índice encontrado.
@@ -57,11 +57,11 @@ function createProductCartCard(product) {
 }
 
 
-function renderCartProducts(list){
+function renderCartProducts(list) {
     const cart = document.querySelector('.cards-cart');
     cart.innerHTML = ''; // Clear previous content
-    
-    list.forEach( product => {
+
+    list.forEach(product => {
         const card = createProductCartCard(product);
         cart.appendChild(card);
     });
@@ -70,7 +70,7 @@ function renderCartProducts(list){
 
 function renderPayCard(products) {
     const payCardContainer = document.getElementById('pay-card-container');
-    payCardContainer.innerHTML='';
+    payCardContainer.innerHTML = '';
 
     const payCard = document.createElement('div');
     payCard.classList.add('pay-card');
@@ -104,7 +104,7 @@ function renderPayCard(products) {
     payButton.textContent = 'Pagar';
     payCard.appendChild(payButton);
 
-    let precioTotal = 0; 
+    let precioTotal = 0;
     precioTotal = products.reduce((total, product) => total + product.price, 0);
 
     const totalFormateado = precioTotal.toLocaleString("es-AR");
@@ -123,6 +123,6 @@ function renderPayCard(products) {
         productList.appendChild(liName);
         priceList.appendChild(liPrice);
 
-  });
+    });
 
 }

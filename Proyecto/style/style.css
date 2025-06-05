@@ -20,23 +20,7 @@ header{
         top:0;
         z-index: 1000; /*Elemento apilado por encima de los demás.*/
 }
-/*Estilo de los subtítulos de cada sección */
 
- h2{
-    text-align: center;
-    font-size: 40px;
-    padding: 20px;
-    font-style: italic;
-    background-color: #000000;
-    color: #ffffff;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    border-color: #ff6600;
-    border-style: solid;
-    border-width: 4px;
-    border-right-color: #000000;
-    border-left-color: #000000;
-}
 
 /* Estilos del menú de navegación */
 nav {
@@ -319,12 +303,6 @@ nav {
 
 /* Estilos para todos los formularios */
 
-.payment-options label {
-    background-color: #00ff40;
-  display: flex;
-  align-items:left;
-  width: 20%;
-}
 
 form input,
 form textarea,
@@ -378,6 +356,33 @@ button:hover{
     font-weight: bold;
 }
 
+/* Estilos de la seccion de datos de pago */
+.payment h2{
+        text-align: center;
+        font-size: 35px;
+        padding: 5px;
+        font-style: italic;
+        color: #000000;
+        font-family: "Bebas Neue", sans-serif;
+        font-weight: 300;
+
+    }
+
+.payment{
+    display: grid; /*Uso de grid*/
+    padding: 10px;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 25% 25% 25% 25%;
+}
+
+.payment form{
+    grid-column-start:1;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    padding: 2%;
+    margin-bottom: 10px;
+}
+
 
 /* Estilos de la seccion del formulario de venta */
 .sellform{
@@ -418,6 +423,22 @@ button:hover{
     overflow: hidden;
     height: 450px;
 
+}
+
+.sales-title h2{
+    text-align: center;
+    font-size: 40px;
+    padding: 20px;
+    font-style: italic;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    border-color: #ff6600;
+    border-style: solid;
+    border-width: 4px;
+    border-right-color: #000000;
+    border-left-color: #000000;
 }
 
 .sales ul {
