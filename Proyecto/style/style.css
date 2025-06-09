@@ -13,6 +13,9 @@ body{
     overflow-x: hidden; /* Oculta el contenido que se desborda horizontalmente para evitar el scroll lateral */
     max-width: 100vw; /* Ajusta el tamaño para que no se desborde del ancho de pantalla */
     height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 /* Para que el menú de navegación quede fijo en la parte superior */
 header{

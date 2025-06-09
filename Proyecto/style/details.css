@@ -17,6 +17,11 @@ body {
     max-width: 100vw;
     min-height: 100vh;
     /* Ajusta el tamaño para que no se desborde del ancho de pantalla */
+    display: flex;
+
+     justify-content: space-between;
+     flex-direction: column;
+     background-color: #000000;
 }
 
 /* Para que el menú de navegación quede fijo en la parte superior */
@@ -116,6 +121,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #fbf6f6;
 }
 
 /* Estilos de la tarjeta */

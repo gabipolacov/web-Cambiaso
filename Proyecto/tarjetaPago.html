@@ -44,43 +44,33 @@
         <!--Detalle de Producto-->
         <section id="pay-details" class="pay-details">
             <div class="pay-details-card" id="pay-details-card">
-            <div class="card-content">
-                <div class="client-details-section">
-                    <h4>Nombre: </h4>
-                    <h4>Apellido: </h4>
-                    <h4>Dirección: </h4>
-                    <h4>Provincia: </h4>
-                    <h4>Localidad: </h4>
-                    <h4>CP: </h4>
+                <div class="card-content" id="card-content">
+                    <div class="client-details-section">
+                        <h4>Nombre: </h4>
+                        <h4>Apellido: </h4>
+                        <h4>Dirección: </h4>
+                        <h4>Provincia: </h4>
+                        <h4>Localidad: </h4>
+                        <h4>CP: </h4>
+                    </div>
+                    <div class="client-details-data" id="client-details-data">
+                        <!-- Acá van los datos desde paycard.js-->
+                    </div>
+
+                    <div class="pay-details-section">
+                        <h4>Tipo de Pago: </h4>
+                        <h4>Nro de Tarjeta: </h4>
+                        <h4>CVV: </h4>
+                        <h4>Titular: </h4>
+                        <h4>DNI: </h4>
+                    </div>
+                    <div class="pay-details-data" id="pay-details-data">
+                        <!-- Acá van los datos desde paycard.js-->
+                    </div>
                 </div>
-                <div class="client-details-data">
-                    <p>Gabriela</p>
-                    <p>Moreno Polacov</p>
-                    <p>Martín García 153</p>
-                    <p>Córdoba</p>
-                    <p>Córdoba Capital</p>
-                    <p>5000</p>
-                </div>
-             
-                <div class="pay-details-section">
-                    <h4>Tipo de Pago: </h4>
-                    <h4>Nro de Tarjeta: </h4>
-                    <h4>CVV: </h4>
-                    <h4>Titular: </h4>
-                    <h4>DNI: </h4>
-                </div>
-                   <div class="pay-details-data">
-                    <p>Tipo de Pago: </p>
-                    <p>Número de Tarjeta: </p>
-                    <p>CVV: </p>
-                    <p>Titular: </p>
-                    <p>DNI: </p>
-                
-                </div>
-                </div>
-                  <div class="button-group">
-                <button class="button">Editar</button>
-                <button class="button">Pagar</button>
+                <div class="button-group">
+                    <button class="button" id="edit-button">Editar</button>
+                    <button class="button" id="pay-button">Pagar</button>
                 </div>
             </div>
         </section>
@@ -103,7 +93,7 @@
         </div>
     </footer>
     <script src="./scripts/menu.js"></script>
-    <script src="./scripts/details.js"></script>
+    <script src="./scripts/paycard.js"></script>
 </body>
 
 </html>

@@ -22,7 +22,18 @@ async function fetchProducts() {
         },
     });
     const data = await response.json();
-    productsList = data.records.map(record => record.fields); //Transforma el array de Airtable (data.records) en un array donde cada product tiene solo name, price, image, como espera createProductCard().
+
+    productsList = data.records.map(record => {
+        const fields = record.fields;
+        return {
+            name: fields.name,
+            price: fields.price,
+            image: fields.image,
+            description: fields.description,
+            Id: fields.Id,
+            category: fields.category
+        };
+    });
     productsList.forEach(product => {
         const card = createProductCard(product);
         grid.appendChild(card);
@@ -63,14 +74,24 @@ function createProductCard(product) {
     button.textContent = 'Agregar al carrito';
     button.addEventListener('click', (e) => {
         e.stopPropagation(); // detiene que el click siga subiendo al contenedor
-        const exists = cartProducts.find(p => p.name === product.name);
-        if (!exists) {
-            cartProducts.push(product);
-            localStorage.setItem('cart', JSON.stringify(cartProducts));
-            console.log('Producto agregado al carrito');
-        }
-    });
 
+    const productToAdd = {
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        description: product.description,
+        Id: product.Id,
+        category: product.category
+    };
+
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const exists = cart.find(p => p.Id === productToAdd.Id);
+    if (!exists) {
+        cart.push(productToAdd);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log('Producto agregado al carrito');
+    }
+    });
 
     //Se inserta el contenido en la tarjeta
     card.appendChild(img);

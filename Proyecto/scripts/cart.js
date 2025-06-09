@@ -28,7 +28,7 @@ function createProductCartCard(product) {
     } else {
         img.src = './imagenes/predeterminada.jpg';
     }
-    img.alt = product.title;
+    img.alt = product.name;
 
     const title = document.createElement('p');
     title.textContent = product.name;
@@ -104,6 +104,10 @@ function renderPayCard(products) {
     payButton.textContent = 'Pagar';
     payCard.appendChild(payButton);
 
+    payButton.addEventListener('click', () => {
+        window.location.href = `pago.html`;
+    });
+
     let precioTotal = 0;
     precioTotal = products.reduce((total, product) => total + product.price, 0);
 
@@ -113,6 +117,7 @@ function renderPayCard(products) {
     totalContainer.appendChild(totalNumber);
 
     products.forEach(product => {
+          console.log(product);
         const liName = document.createElement('li');
         liName.textContent = product.name;
 
