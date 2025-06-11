@@ -220,7 +220,7 @@ nav {
 #details {
     display: flex;
     justify-content: center;
-    background-color: #ff6600;
+    background-color: #ff6600;  
 }
 
 /* Estilos de la tarjeta */
@@ -635,15 +635,11 @@ button:hover{
 /*Estilos del footer*/
 footer{
     background-color: rgb(0, 0, 0);
-    display: flex; /*Uso de flexbox*/
-    flex-direction: row;
+    display: grid; /*Uso de flexbox*/
+    grid-template-columns: 50% 50%;
     padding: 8px;
     justify-content: center;
     column-gap: 10px;
-    /* position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 90px; */
 }
 
 footer div{
@@ -651,23 +647,19 @@ footer div{
 }
 
 footer .copyright{
-    justify-content: end;
+    justify-content: flex-end;
+    align-items: end;
+
 }
 
 footer .redes{
     display: flex;
-    flex-direction: column;
-    row-gap: 9px;
+    flex-direction: row;
+    column-gap: 30px;
     justify-content: center;
   }
 
 footer .redes a{
-    display:flex;/* Alinea verticalmente imagen y texto */
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 15px;
-    color: white;
-    font-style: italic;
     justify-content: center;
 }
 

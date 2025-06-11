@@ -70,7 +70,7 @@ async function editPayment(payment) {
 
     return data.id;
 }
-//Función Para recargar el formulario con el payment Airtable
+//Función para recargar el formulario con el payment Airtable
 async function loadForm(id) {
     const response = await fetch(`${API_URL}/${id}`, {
         method: 'GET',
