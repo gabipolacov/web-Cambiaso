@@ -1,36 +1,42 @@
-*{
+* {
     margin: 0%;
     border: 0%;
     padding: 0;
     font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto; /* Ajusta el grosor y forma del texto según el tamaño para mejorar la legibilidad */
+    font-optical-sizing: auto;
+    /* Ajusta el grosor y forma del texto según el tamaño para mejorar la legibilidad */
     font-style: normal;
 }
 
-html{
-	scroll-behavior:smooth;
-     height: 100%;
+html {
+    scroll-behavior: smooth;
+    height: 100%;
 }
 
-body{
-    background-color: #fbf6f6;
-    width: 100%; /* Evita el scroll horizontal si algo se desborda */
-    overflow-x: hidden; /* Oculta el contenido que se desborda horizontalmente para evitar el scroll lateral */
-    max-width: 100vw; /* Ajusta el tamaño para que no se desborde del ancho de pantalla */
+body {
+    background-color: #f2eeee;
+    width: 100%;
+    /* Evita el scroll horizontal si algo se desborda */
+    overflow-x: hidden;
+    /* Oculta el contenido que se desborda horizontalmente para evitar el scroll lateral */
+    max-width: 100vw;
+    /* Ajusta el tamaño para que no se desborde del ancho de pantalla */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-main{
-    flex-grow:1;
+main {
+    flex-grow: 1;
     display: flex;
 }
+
 /* Para que el menú de navegación quede fijo en la parte superior */
-header{
-        position: sticky;
-        top:0;
-        z-index: 1000; /*Elemento apilado por encima de los demás.*/
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /*Elemento apilado por encima de los demás.*/
 }
 
 
@@ -50,25 +56,28 @@ nav {
     align-items: center;
     padding: 10px;
     background-color: #171717;
-    li{
+
+    li {
         display: inline;
         padding: 20px;
         background-color: #171717;
         justify-content: center;
-        a{
-            text-decoration: none; /* Quita el subrayado */
-            color: white; 
-            font-size: 25px; 
-            padding: 16px; 
-            margin: 5px; 
+
+        a {
+            text-decoration: none;
+            /* Quita el subrayado */
+            color: white;
+            font-size: 25px;
+            padding: 16px;
+            margin: 5px;
             font-family: "Bebas Neue", sans-serif;
             font-weight: 200;
-            background-color: #171717;     
-        }     
+            background-color: #171717;
+        }
     }
 }
 
-.menu li a:hover{
+.menu li a:hover {
     color: #ff7700;
     background-color: rgb(40, 51, 63);
     border-radius: 15px;
@@ -76,7 +85,8 @@ nav {
 
 /* Botón del menú hamburguesa */
 .menu-toggle {
-    display: none; /* Oculto por defecto */
+    display: none;
+    /* Oculto por defecto */
     font-size: 20px;
     color: white;
     background: none;
@@ -84,40 +94,42 @@ nav {
     cursor: pointer;
     margin: 10px;
     padding: 8px;
+    box-shadow: none;
+    outline: none;
 }
 
 /* Estilos del encabezado */
 /*Cambiaso*/
-.main-title h1{
+.main-title h1 {
     text-align: center;
     padding: 10px;
     background-color: rgb(0, 0, 0);
-    color:white;
+    color: white;
     font-size: 90px;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: italic;
 }
+
 /*Encontrá lo que buscas, vendé lo que no necesitas.*/
-.main-title h3{
+.main-title h3 {
     text-align: center;
     background-color: rgb(0, 0, 0);
-    color:white;
+    color: white;
     font-size: 25px;
     font-weight: lighter;
     border-color: #000000;
     font-family: "Bebas Neue", sans-serif;
     font-weight: 400;
     font-style: italic;
-    padding:10px;
+    padding: 10px;
 }
 
 /* Estilos para la sección  tarjeta de pago*/
 .pay-details {
-    background-color: rgb(231, 6, 6);
     display: flex;
     justify-content: center;
-    flex-grow:1;
+    flex-grow: 1;
     align-items: center;
 }
 
@@ -125,14 +137,18 @@ nav {
 .pay-details-card {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* espacio entre columnas */
+    gap: 15px;
+    /* espacio entre columnas */
     border-radius: 6px;
     border-color: 2px solid rgb(58, 56, 53);
     padding: 25px;
-    box-shadow: 0px 0px 1px rgb(167, 161, 161);
-    margin: 20px;
-    background-color: rgb(229, 229, 230);
-    h3{
+    border-radius: 6px;
+    border-color: 1px rgb(58, 56, 53) solid;
+    margin: 10px; 
+    background-color: #dbd5d5;
+    box-shadow: 5px 5px 10px rgb(112, 104, 104);
+
+    h3 {
         align-self: center;
         font-size: 23px;
         padding: 10px;
@@ -141,10 +157,18 @@ nav {
 
 .card-content {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     gap: 20px;
     width: 100%;
 }
+.client-details-container,
+.pay-details-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+}
+
 
 .pay-details-card h4 {
     font-size: 16px;
@@ -185,28 +209,28 @@ nav {
 
 .button-group {
     display: flex;
-    justify-content: flex-end; 
+    justify-content: flex-end;
     gap: 10px;
-    margin-top: auto; 
+    margin-top: auto;
 }
 
 /* Estilos para todos los botones */
-button{
-    width:fit-content;  
-    padding:10px;
+button {
+    width: fit-content;
+    padding: 10px;
     border-radius: 7px;
     margin: 10px;
     align-self: flex-end;
-    font-size:16px;
+    font-size: 16px;
     background-color: #000000;
     color: rgb(255, 255, 255);
-    border:  none;
+    border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: 2px 2px 5px rgb(163, 154, 154);
 }
 
-button:hover{
+button:hover {
     color: black;
     background-color: #ff6600;
     font-weight: bold;
@@ -214,83 +238,59 @@ button:hover{
 
 
 /*Estilos del footer*/
-footer{
+/*Estilos del footer*/
+footer {
     background-color: rgb(0, 0, 0);
-    display: flex; /*Uso de flexbox*/
+    display: flex;
+    /*Uso de flexbox*/
     flex-direction: row;
+    flex-wrap: wrap;
     padding: 8px;
     justify-content: center;
+    align-items: stretch;
+    align-content: stretch;
     column-gap: 10px;
-    /* position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 90px; */
 }
 
-footer div{
+footer div {
     padding: 5px;
 }
 
-footer .copyright{
-    justify-content: end;
+footer .copyright {
+
+    justify-content: flex-end;
+    align-items: end;
+
 }
 
-footer .redes{
+
+footer .redes {
     display: flex;
-    flex-direction: column;
-    row-gap: 9px;
+    flex-direction: row;
+    column-gap: 90px;
+    width: 70%;
+    align-self: auto;
     justify-content: center;
-  }
+    align-items: center;
 
-footer .redes a{
-    display:flex;/* Alinea verticalmente imagen y texto */
-    text-decoration: none;
-    font-weight: 400;
-    font-size: 15px;
-    color: white;
-    font-style: italic;
+}
+
+footer .redes a {
     justify-content: center;
 }
 
-footer img{
+footer img {
     width: 20px;
     height: 20px;
     margin-right: 7px;
 }
 
-footer p{
+footer p {
     padding: 1px;
     font-weight: 400;
     font-size: 15px;
     color: white;
     font-style: italic;
-}
-
-
-/* Animación del carrusel de Promociones */
-@keyframes slide {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(0); }      /* Pausa en el primer ítem */
-  
-    25% { transform: translateX(-100%); }
-    45% { transform: translateX(-100%); }  /* Pausa en el segundo ítem */
-  
-    50% { transform: translateX(-200%); }
-    70% { transform: translateX(-200%); }  /* Pausa en el tercer ítem */
-  
-    75% { transform: translateX(0); }
-    100% { transform: translateX(0); }     /* Vuelve a empezar */
-  }
-
-/*En este mediaquery: las tarjetas de la galeria se muestran de a 3*/
-@media (max-width: 910px){
-    .gallery{
-        display: grid;/*Uso de grid*/
-        grid-template-columns: repeat(3, 1fr); /*Columnas en grid*/
-        padding:20px;
-        gap:10px;
-        margin: 15px; 
-    }
 }
 
 /*En este mediaquery: 
@@ -299,10 +299,11 @@ footer p{
 -Se hace más pequeña la barra de búsqueda
 -Se muestran los productos de a 2 en la galería
 -La seccion pagar del carrito se muestra debajo de los productos agregados al carrito*/
-@media (max-width: 685px){
-    nav{
+@media (max-width: 685px) {
+    nav {
         height: 40px;
     }
+
     .menu {
         display: none;
         flex-direction: column;
@@ -315,95 +316,64 @@ footer p{
         background-color: #000000;
     }
 
-    .menu li{
+    .menu li {
         height: auto;
         padding: 1px;
         width: 100%;
     }
 
-    .menu li a{
+    .menu li a {
         display: block;
-        width:auto;
+        width: auto;
         font-size: 22px;
         padding: 6px;
     }
 
-    .menu li:hover{
+    .menu li:hover {
         color: #ff7700;
         background-color: rgb(40, 51, 63);
         border-radius: 5px;
     }
 
     .menu.active {
-        display: flex; /* Se muestra el menú cuando esté activo */
+        display: flex;
+        /* Se muestra el menú cuando esté activo */
     }
 
     .menu-toggle {
-        display: block; /* Se muestra el botón hamburguesa */
+        display: block;
+        /* Se muestra el botón hamburguesa */
         position: absolute;
         top: 10px;
         left: 20px;
-    }   
+    }
 
-    .main-title h1{
+    .main-title h1 {
         font-size: 70px;
     }
 
-    .main-title h3{
+    .main-title h3 {
         font-size: 20px;
     }
 
-    h2{
-        font-size: 30px;  
+    h2 {
+        font-size: 30px;
     }
 
-    .search-form input{
-        width:280px;
-    }
+    .card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 
-    .filters-form{
-        width:380px;
-    }
+.client-details-container,
+.pay-details-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    justify-content: space-between;
+}
 
-    .gallery{
-        display: grid;
-        grid-template-columns: repeat(2, 1fr); 
-        padding:20px;
-        gap:10px;
-        margin: 15px;
-    }
-    
-    /* Estilos de las tarjetas */
-    .card{  
-        display:flex;
-        flex-direction: column;
-    }
-
-    .shopping-cart{
-        display: flex;
-        flex-direction: column;
-        padding:15px;
-        margin: 20px; 
-    }
-    .pay-card{
-        display:flex; /*Uso de flexbox*/
-        flex-direction: row;
-        padding:10px;
-        margin: 7px; 
-        width:auto;
-        height: 60px;
-        h1{
-            display: none;
-        }
-    }
-    .pay-card .total-container {
-        gap: 10px;
-        align-self: center;
-    }
-
-    .pay-card button {
-        justify-self: flex-end;
-    }
 }
 
 /*En este mediaquery: 
@@ -416,9 +386,10 @@ footer p{
 -Los formularios de venta y contacto se ponen debajo del texto de cada sección
 -Los elementos del footer se van poniendo uno debajo de otro a medida que la pantalla se achica */
 @media (max-width: 542px) {
-    nav{
+    nav {
         height: 40px;
     }
+
     .menu {
         display: none;
         flex-direction: column;
@@ -431,112 +402,77 @@ footer p{
         background-color: #000000;
     }
 
-    .menu li{
+    .menu li {
         height: auto;
         padding: 1px;
         width: 100%;
     }
 
-    .menu li a{
+    .menu li a {
         display: block;
-        width:auto;
+        width: auto;
         font-size: 22px;
         padding: 6px;
     }
-    .menu li:hover{
+
+    .menu li:hover {
         color: #ff7700;
         background-color: rgb(40, 51, 63);
         border-radius: 5px;
     }
+
     .menu.active {
-        display: flex; /* Se muestra el menú cuando esté activo */
+        display: flex;
+        /* Se muestra el menú cuando esté activo */
     }
 
     .menu-toggle {
-        display: block; /* Se muestra el botón hamburguesa */
+        display: block;
+        /* Se muestra el botón hamburguesa */
         position: absolute;
         top: 10px;
         left: 20px;
     }
 
-    .main-title h1{
-        font-size: 50px;    
+    .main-title h1 {
+        font-size: 50px;
     }
 
-    .search{
-        align-items: flex-start;
-    }
-
-    .search-form input{
-        width:180px;
-        
-     }
-
-    .filters-form {
-       display: flex;
-       flex-direction: column;
-       width: fit-content;
-     }
-
-    .gallery{
+    .client-details-section {
         display: flex;
         flex-direction: column;
-        padding:20px;
-    }
-    .card-cart{  
-        display:flex; /*Uso de flexbox*/
-        flex-direction: column;
-        justify-content: right;
-        width: 80%;
-        h3{
-            font-size: 19px;
-            padding: 10px;
-        }
-        img{
-            width: 40%;
-        }
-        button{
-            align-items: right;
-        }
+        width: fit-content;
     }
 
-    .cards-cart{
+    .client-details-data {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        width: fit-content;
     }
 
-    .pay-card .total-container {
+    .pay-details-section {
         display: flex;
         flex-direction: column;
-        align-items: left;
-        justify-content: space-between;
-        gap: 10px;
-        height: fit-content;
+        width: fit-content;
     }
 
-
-    .sellform{
+    .pay-details-data {
         display: flex;
         flex-direction: column;
+        width: fit-content;
     }
 
-    .contact{
-        display: flex;
-        flex-direction: column;
-    }
 
-    footer{
+    footer {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }
 
-    footer .redes{
+    footer .redes {
         display: flex;
-        flex-direction: column;
-        column-gap: 5px;
-        order:3;
+        flex-direction: row;
+        column-gap: 30px;
+        order: 3;
     }
 }
-
