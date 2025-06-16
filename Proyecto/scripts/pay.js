@@ -65,8 +65,6 @@ async function editPayment(payment) {
         body: JSON.stringify(newPayment)
     });
     const data = await response.json();
-    console.log("Respuesta completa de Airtable:", data);
-    console.log("ID del registro creado:", data.id);
 
     return data.id;
 }

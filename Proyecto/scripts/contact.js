@@ -46,6 +46,9 @@ form.addEventListener('submit', async (event) => {
             icon: 'success',
             title: '¡Mensaje enviado!',
             text: 'Gracias por contactarte, te responderemos pronto.',
+            customClass: {
+                confirmButton: 'custom-button',
+            },
         });
         form.reset(); // Limpia el formulario
     } else {
@@ -53,6 +56,9 @@ form.addEventListener('submit', async (event) => {
             icon: 'error',
             title: '¡Error!',
             text: 'Hubo un problema al enviar el mensaje. Intentalo más tarde.',
+            customClass: {
+                confirmButton: 'custom-button',
+            },
         });
     }
 });

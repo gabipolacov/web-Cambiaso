@@ -9,16 +9,22 @@ async function addProduct(product) {
     const newProduct = {
         fields: product
     };
-    const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(newProduct)
-    });
-    const data = await response.json();
-    console.log(data);
+
+    try {
+        const response = await fetch(API_URL, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${API_TOKEN}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newProduct)
+        });
+        const data = await response.json();
+        return data.id;
+    } catch (error) {
+        console.error("No se pudo publicar tu producto", error);
+        return false;
+    }
 }
 
 //Evento para hacer submit del formulario
@@ -32,7 +38,27 @@ form.addEventListener('submit', async (event) => {
         price: parseFloat(document.getElementById('price').value),
         image: document.getElementById('image').value,
     };
-    await addProduct(formProduct);
-    //Resetea el formulario
-    form.reset();
+    const airtableId = await addProduct(formProduct);
+
+    if (airtableId) {
+        formProduct.airtableId = airtableId;
+        Swal.fire({
+            icon: 'success',
+            title: '¡Producto Publicado!',
+            text: 'Tu producto se publicó exitosamente.',
+            customClass: {
+                confirmButton: 'custom-button',
+            },
+        });
+        form.reset(); // Limpia el formulario
+    } else {
+        Swal.fire({
+            icon: 'error',
+            title: '¡Error!',
+            text: 'Hubo un problema al publicar tu producto. Intentalo más tarde.',
+            customClass: {
+                confirmButton: 'custom-button',
+            },
+        });
+    }
 }); 

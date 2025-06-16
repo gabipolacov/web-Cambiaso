@@ -29,6 +29,7 @@ body {
 main {
     flex-grow: 1;
     display: flex;
+    justify-content: center;
 }
 
 /* Para que el menú de navegación quede fijo en la parte superior */
@@ -129,6 +130,7 @@ nav {
 #details {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
 /* Estilos de la tarjeta */
@@ -140,18 +142,18 @@ nav {
     border-color: 2px solid rgb(58, 56, 53);
     padding: 10px;
     box-shadow: 0px 0px 1px rgb(167, 161, 161);
-    height: 80%;
+    height: 75%;
+    width: 40%;
     /* asegura que crezca uniformemente */
-    width: 50%;
     background-color: rgb(254, 254, 255);
-    margin: 20px;
     align-self: center;
+    margin: 30px;
 }
 
 .details-card button {
     align-self: flex-end;
     margin-top: auto;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     margin-right: 20px;
 }
 
@@ -159,9 +161,11 @@ nav {
     display: flex;
     flex-direction: column;
 
+
     p {
         font-size: 16px;
         padding: 5px;
+        margin: 10px;
     }
 
     h3 {
@@ -177,7 +181,7 @@ nav {
     justify-content: center;
 
     img {
-        height: 70%;
+        height: 300px;
         border-radius: 6px;
         filter: brightness(1.1);
         /* Quita el fondo blanco de una imagen */
@@ -202,6 +206,26 @@ button {
 }
 
 button:hover {
+    color: black;
+    background-color: #ff6600;
+    font-weight: bold;
+}
+
+.custom-button{
+    padding:10px;
+    border-radius: 7px;
+    margin: 10px;
+    font-size:16px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border:  none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgb(163, 154, 154);
+    width: 100px;
+}
+
+.custom-button:hover{
     color: black;
     background-color: #ff6600;
     font-weight: bold;
@@ -261,14 +285,12 @@ footer p {
     font-style: italic;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
 
     .details-card {
         display: flex;
         flex-direction: column;
         height: fit-content;
-        /* asegura que crezca uniformemente */
-        width: fit-content;
 
         button {
             align-self: flex-end;
@@ -300,7 +322,8 @@ footer p {
         justify-content: center;
 
         img {
-            width: 40%;
+            width: 50%;
+            height: auto;
         }
     }
 
@@ -408,7 +431,7 @@ footer p {
 
         img {
             height: auto;
-            width: 40%;
+            width: 50%;
         }
     }
 }

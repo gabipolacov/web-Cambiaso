@@ -95,6 +95,29 @@ function createDetailCard(product) {
             localStorage.setItem('cart', JSON.stringify(cartProducts));
             console.log('Producto agregado al carrito');
         }
+
+        if (!exists) {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Producto agregado al Carrito!',
+                html: `Para ver tu productos, dirígete a la sección
+                        <a href="carrito.html" autofocus>Carrito</a>.`,
+                customClass: {
+                confirmButton: 'custom-button',
+            },
+            });
+
+        } else {
+            Swal.fire({
+                icon: 'info',
+                title: '¡Este producto ya está en tu carrito!',
+                html: `Para ver tu productos, dirígete a la sección
+                        <a href="carrito.html" autofocus>Carrito</a>.`,
+                customClass: {
+                confirmButton: 'custom-button',
+            },
+            });
+        }      
     });
 
     return card;

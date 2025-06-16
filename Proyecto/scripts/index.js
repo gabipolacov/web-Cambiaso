@@ -7,7 +7,7 @@ let productsList = [];
 let productId = 0;
 //Se ubica el selector donde van las cards
 const grid = document.querySelector('.gallery');
-const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
+const cartProducts = JSON.parse(localStorage.getItem('cart')) || []
 
 fetchProducts();
 
@@ -22,7 +22,6 @@ async function fetchProducts() {
         },
     });
     const data = await response.json();
-
     productsList = data.records.map(record => {
         const fields = record.fields;
         return {
@@ -31,7 +30,8 @@ async function fetchProducts() {
             image: fields.image,
             description: fields.description,
             Id: fields.Id,
-            category: fields.category
+            category: fields.category,
+            airtableId: record.id
         };
     });
     productsList.forEach(product => {
@@ -72,25 +72,49 @@ function createProductCard(product) {
 
     const button = document.createElement('button');
     button.textContent = 'Agregar al carrito';
+
     button.addEventListener('click', (e) => {
         e.stopPropagation(); // detiene que el click siga subiendo al contenedor
 
-    const productToAdd = {
-        name: product.name,
-        price: product.price,
-        image: product.image,
-        description: product.description,
-        Id: product.Id,
-        category: product.category
-    };
+        const productToAdd = {
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            description: product.description,
+            Id: product.Id,
+            category: product.category,
+            airtableId: product.airtableId
+        };
 
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const exists = cart.find(p => p.Id === productToAdd.Id);
-    if (!exists) {
-        cart.push(productToAdd);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        console.log('Producto agregado al carrito');
-    }
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const exists = cart.find(p => p.Id === productToAdd.Id);
+        if (!exists) {
+            cart.push(productToAdd);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        if (!exists) {
+            Swal.fire({
+                icon: 'success',
+                title: '¡Producto agregado al Carrito!',
+                html: `Para ver tu productos, dirígete a la sección
+                        <a href="carrito.html" autofocus>Carrito</a>.`,
+                customClass: {
+                confirmButton: 'custom-button',
+            },
+            });
+
+        } else {
+            Swal.fire({
+                icon: 'info',
+                title: '¡Este producto ya está en tu carrito!',
+                html: `Para ver tu productos, dirígete a la sección
+                        <a href="carrito.html" autofocus>Carrito</a>.`,
+                customClass: {
+                confirmButton: 'custom-button',
+            },
+            });
+        }
     });
 
     //Se inserta el contenido en la tarjeta
@@ -142,9 +166,28 @@ function filterProducts(text, cat, min, max) {
     });
     grid.innerHTML = '';
     if (filteredProducts.length === 0) {
-        grid.innerHTML = '<h3 id="resultado">No se encontraron resultados</h3>';
+
+        grid.style.display = 'flex';
+        grid.style.justifyContent = 'center';
+        grid.style.alignItems = 'center';
+        grid.style.minHeight = '150px';
+
+        const nullResult = document.createElement('div');
+        nullResult.className = 'null-result';
+
+        const nullTitle = document.createElement('h3');
+        nullTitle.innerHTML = 'No se encontraron resultados';
+
+        const nullText = document.createElement('p');
+        nullText.innerHTML = 'Intenta buscar otro artículo.';
+
+        nullResult.appendChild(nullTitle);
+        nullResult.appendChild(nullText);
+        grid.appendChild(nullResult);
+
     }
     else {
+        grid.style.display = 'grid';
         renderProducts(filteredProducts);
     }
 

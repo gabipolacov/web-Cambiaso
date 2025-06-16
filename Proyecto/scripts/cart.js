@@ -1,4 +1,5 @@
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
+const payProducts = JSON.parse(localStorage.getItem('pay-cart')) || [];
 
 cartVerify(cartProducts);
 
@@ -7,8 +8,17 @@ function cartVerify(cartProducts) {
         const shoppingCart = document.getElementById('shopping-cart');
         shoppingCart.innerHTML = '';
 
-        const nullMessage = document.createElement('h3');
-        nullMessage.innerHTML = 'No tienes ningún producto en tu carrito. <br>Para agregar un producto haz click en agregar al carrito en nuestro catálogo de productos.';
+        const nullMessage = document.createElement('div');
+        nullMessage.className = 'null-cart';
+
+        const messageTitle = document.createElement('h3');
+        messageTitle.textContent = 'No tienes ningún producto en tu carrito.';
+
+        const messageText = document.createElement('p');
+        messageText.textContent = 'Para agregar un producto haz click en "Agregar al carrito" en nuestro catálogo de productos.';
+
+        nullMessage.appendChild(messageTitle);
+        nullMessage.appendChild(messageText);
         shoppingCart.appendChild(nullMessage);
     }
     else {
@@ -105,6 +115,9 @@ function renderPayCard(products) {
     payCard.appendChild(payButton);
 
     payButton.addEventListener('click', () => {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        localStorage.setItem('pay-cart', JSON.stringify(cart));
+        localStorage.removeItem('cart');
         window.location.href = `pago.html`;
     });
 
@@ -117,7 +130,7 @@ function renderPayCard(products) {
     totalContainer.appendChild(totalNumber);
 
     products.forEach(product => {
-          console.log(product);
+        console.log(product);
         const liName = document.createElement('li');
         liName.textContent = product.name;
 

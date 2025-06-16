@@ -134,6 +134,15 @@ nav {
     justify-content: center;
     width: 100%;
 }
+.null-cart{
+    text-align: center;
+    padding: 20px;
+    h3{
+        padding: 30px;
+        font-size: 23px;
+    }
+
+}
 
 .cards-cart{
     display: flex;
@@ -167,6 +176,25 @@ nav {
     }
 }
 
+.custom-button{
+    padding:10px;
+    border-radius: 7px;
+    margin: 10px;
+    font-size:16px;
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+    border:  none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 2px 2px 5px rgb(163, 154, 154);
+    width: 100px;
+}
+
+.custom-button:hover{
+    color: black;
+    background-color: #ff6600;
+    font-weight: bold;
+}
 
 
 .pay-card{
