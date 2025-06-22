@@ -126,6 +126,6 @@ Contiene imágenes que se usan en las tarjetas de productos, carrusel, banners p
 
 ## Posibles mejoras para lo próxima versión
 
-- Ajustar el carrusel de promociones en la página.
+- Implementar un loader para cuando cargan los productos en la página.
 - Implementar la búsqueda dinámica mientras se escribe en input o se aplican filtros.
 
