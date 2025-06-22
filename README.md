@@ -102,16 +102,16 @@ Contiene imágenes que se usan en las tarjetas de productos, carrusel, banners p
    - En el carrito de compras, el usuario puede aumentar la cantidad de un producto o disminuirla segun el stock diponible.
    - Se muestra el subtotal de cada roducto y el total en la tarjaeta de Detalle de compra.
      
-6. **Pago:**  
-  - Al hacer click en pagar, se muestra un formulario en donde se cargan todos los datos para cargar en la tabla de Payments de Airtable.
-  - Al confirmar los datos, se muestra un tarjeta con todos los datos, el usuario puede editar los datos volviendo al formulario.
-  - Al pagar, si el producto tiene stock se disminuye el valor del campo en la tabla productos.
-  - Al pagar, si el producto no tiene stock, se elimina de la tabla productos y no se mostrará más en el .gallery de index.
+7. **Pago:**  
+   - Al hacer click en pagar, se muestra un formulario en donde se cargan todos los datos para cargar en la tabla de Payments de Airtable.
+   - Al confirmar los datos, se muestra un tarjeta con todos los datos, el usuario puede editar los datos volviendo al formulario.
+   - Al pagar, si el producto tiene stock se disminuye el valor del campo en la tabla productos.
+   - Al pagar, si el producto no tiene stock, se elimina de la tabla productos y no se mostrará más en el .gallery de index.
 
-7. **Contacto:**
+8. **Contacto:**
    - El usuario puede enviar comentarios y se guardarán en la tabla messages de Airtable.
 
-8. **Venta:**
+9. **Venta:**
    - Hay un formulario que se puede llenar con las caracterísicas de un producto. El producto se guarda en Airtable y es mostrado en el index.
 ---
 
