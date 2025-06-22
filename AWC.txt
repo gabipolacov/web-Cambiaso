@@ -1,0 +1,160 @@
+Principal objetivo de las tablas: mostrar datos
+Que atributo se utiliza para definir os datos enviados por formulario: action
+Método de envió para enviar formularios seguros: POST
+Para enviar videos:<video>
+Para hacer medidas se puede user px y % y vh tamaño de viewport
+Rem 
+
+Selectores:
+Básicos: tag, clase, #id, *
+Combinadores: div p, div > p, div + p
+Avanzados
+
+Variables se declaran ::root { --color-primario: #3498db; }
+Se utilizan: color: var(--color-primario);
+
+Layout y Maquetación
+Span es para poner en linea?
+
+Posicionamiento: Position
+Por defecto es relativo
+Relative: relativa al contenedor en el que se encuentra
+absolute: El elemento se posiciona respecto al ancestro sino toma el body
+Sticky
+Fixed
+
+Flexbox
+Poder ubicar elementos dentro de una caja horizontal o verticalmente
+Use justify-content:
+
+flex-start: Items align to the left side of the container.
+flex-end: Items align to the right side of the container.
+center: Items align at the center of the container.
+space-between: Items display with equal spacing between them.
+space-around: Items display with equal spacing around them.
+
+Grid
+Trabaja  dos dimensiones
+display:grid (Si pongo esto en padre, todos los elementos hijos serán en grid)
+Es para ubicar cajas dentro de una estructura (una grilla)
+
+Se puede usar calc(100vh-...)
+
+Transiciones
+transition: 
+
+Animaciones
+@keyframe
+
+Media queries
+@media (max-width: 768px)
+
+Usar clase para muchos productos
+Usar id para un solo elemento
+-----------------------------------
+Investigar flex-direction
+Hacer un cheatsheet de grid y flex
+Cambiar ids por clases
+Hacer lo de las media queries
+
+Aplicarlo donde quiero que aplique
+Flex-grow: para que ocupen espacio libre
+
+
+JAVASCRIPT Y DOM
+Crear archivo js
+En el header vincular con etiqueta script src=ruta
+DOM: Representación en arbol de todos los elementos html
+Document option model
+const titulo = document.querySelector("")
+const input = document.getElementById("")
+const botones = document.querySelectorAll("")
+
+Modificar contenido
+elemento.innerText=""
+elemento.innerHTML="codigo html"
+
+Modificar atributos
+elem.setAttribute()
+elem
+
+Crear elementos
+cost nuevoDiv=document.createElement
+nuevoDiv.textContent
+
+Agregar elementos
+padre.appendChild
+
+Eliminar elementos
+
+const: no se reasigna esa variable (es constante)
+let: Puede cambiar
+var: es viejo
+
+Instalar copilot github para intellisense
+
+MAnejo de eventos
+
+Investigar que es el hoisting y el scope en JS (Lo va a preguntar)
+
+---------------------------------------------------------------------------
+
+En JS se usa camelcase
+
+# (numeral) se usa para ID.
+
+. (punto) se usa para clases.
+
+Estos símbolos se usan solo cuando escribís un selector en querySelector o querySelectorAll, porque están siguiendo las reglas de CSS.
+
+consoloe.log()
+console.warn(), console.error()
+debugger para pausar ejecucion
+Comparación
+=== compara valor y tipo
+
+Funcion anónima
+const saludar = function()nombre{}
+Arrow function
+consta saludar = (nombre_parametro)=>'Hola, ${nombre}';
+
+Poner el reduce en el proyecto
+
+FUNCIONES
+
+Funciones tradicionales: Mas que nada para reutilizar código
+function saludar(parametro) {
+return `Hola, ${parametro}`;
+}
+
+Funciones anónimas / expresadas: Esta asignada a una variable
+const saludar = function(parametro) {
+return `Hola, ${parametro}`;
+};
+
+Arrow Functions (ES6):
+const saludar = (parametro) => `Hola, ${parametro}`;
+Si tiene mas de una linea esta función se le pueden poner llaves después de la flecha
+
+
+Diferencias clave:
+● Arrow functions no tienen su propio this(contexto) (ideal para callbacks)
+● Son más concisas, especialmente si el cuerpo es una sola expresión
+● No se pueden usar como constructoras con new
+
+METODOS FUNCIONALES
+
+● map(): transforma cada elemento del array
+const preciosConIVA = precios.map(p => p * 1.21);
+● filter(): devuelve un nuevo array con los que cumplen una
+condición
+const caros = precios.filter(p => p > 100);
+● find(): devuelve el primer elemento que cumple una condición
+const primeroMayorA100 = precios.find(p => p > 100);
+● reduce(): acumula todos los elementos en un solo valor
+const total = precios.reduce((acc, p) => acc + p, 0);
+
+
+Me falta: 
+Medidas del reponsive como default
+Carrousel css
