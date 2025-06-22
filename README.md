@@ -25,21 +25,50 @@ El frontend está construido con HTML, CSS y JavaScript puro. Los productos se a
 - **Filtros por categoría y precio:** Se pueden seleccionar categorías y rangos mínimos y máximos de precio para filtrar los productos.
 - **Carrito de compras:** Los productos se pueden agregar al carrito que se guarda en el LocalStorage.
 - **Limpieza de filtros:** Permite resetear todos los filtros para ver todos los productos.
-- **Manejo de Stock:** Permite al usuario cargar stock, y reduce el stock cuando un producto es comprado.
+- **Manejo de Stock:** Permite al usuario cargar stock, y reduce el stock cuando un producto es comprado. Si el producto no tiene más stock, es eliminado.
 - **Sistema de Pago:** Guarda los datos de pago de un usuario y permite editar datos de pago.
 
 ---
 
-## Estructura del proyecto
+## Flujo del proyecto (estructura y funciones por archivo)
 
-- `index.html`: Página principal con el catálogo, barra de búsqueda y filtros.
-- `style/style.css`: Estilos de la página.
-- `scripts/index.js`: Lógica principal, carga de productos, filtros y carrito.
-- `scripts/menu.js`: Lógica para menú responsive.
-- `scripts/carousel.js`: Carrusel de imágenes promocionales.
-- `imagenes/`: Carpeta con imágenes predeterminadas.
-- `iconos/`: Carpeta con íconos.
-- 
+### Proyecto raíz
+- **index.html** → Página principal donde se muestran los productos, buscador y filtros.
+- **carrito.html** → Muestra los productos agregados al carrito y permite avanzar al pago.
+- **detalle.html** → Muestra el detalle completo de un producto individual.
+- **contacto.html** → Página de formulario de contacto.
+- **venta.html** → Formulario para que usuarios carguen un producto a la plataforma.
+- **pago.html** → Página con el formulario de pago.
+- **tarjetaPago.html** → Página donde se muestran los datos de tarjeta para finalizar el pago.
+
+---
+
+### `scripts/` – Archivos JS del proyecto
+- **index.js** → Lógica principal de la página de inicio: carga los productos desde Airtable, renderiza las tarjetas, implementa búsqueda y filtros, y maneja el carrito.
+- **menu.js** → Maneja la apertura/cierre del menú responsive de navegación (hamburguesa).
+- **carousel.js** → Controla el carrusel de imágenes promocionales.
+- **details.js** → Recupera la ID del producto desde la URL, obtiene los datos desde Airtable y muestra la información detallada en `detalle.html`.
+- **cart.js** → Lógica del carrito: muestra los productos añadidos, permite eliminarlos y muestra el total en `carrito.html`.
+- **contact.js** → Lógica del formulario de contacto.
+- **sellform.js** → Maneja el formulario de venta (`venta.html`), permite subir un producto nuevo a Airtable.
+- **pay.js** → Lógica del formulario de pago, se puede editar el formulario (`pago.html`).
+- **paycard.js** → Lógica para la tarjeta con los detalles de pago `tarjetaPago.html`.
+
+---
+
+### `style/` – Hojas de estilo CSS
+- **style.css** → Estilos generales compartidos por todas las páginas.
+- **cart.css** → Estilos particulares de la página del carrito.
+- **details.css** → Estilos para la vista de detalle del producto.
+- **pay-card.css** → Estilos para la pantalla de la tarjeta con detalles de pago (`tarjetaPago.html`).
+
+---
+
+### `imagenes/` – Imágenes de productos y banners
+Contiene imágenes que se usan en las tarjetas de productos, carrusel, banners promocionales, etc.
+
+### `iconos/` – Íconos para la interfaz
+Íconos de redes sociales, ícono de la pestaña, etc.
 
 ---
 
@@ -86,8 +115,17 @@ El frontend está construido con HTML, CSS y JavaScript puro. Los productos se a
    - Hay un formulario que se puede llenar con las caracterísicas de un producto. El producto se guarda en Airtable y es mostrado en el index.
 ---
 
+## Tablas en Airtable
+
+- Tabla products para guardar los productos con sus características.
+- Tabla messages para guardar los comentarios de los usuarios.
+- Tabla payments para guardar los pagos de cada compra.
+
+
+---
+
 ## Posibles mejoras para lo próxima versión
 
-- Ajustar el carrusel de promociones en la página
-- Implementar la búsqueda dinámica mientras se escribe en input o se aplican filtros
+- Ajustar el carrusel de promociones en la página.
+- Implementar la búsqueda dinámica mientras se escribe en input o se aplican filtros.
 
