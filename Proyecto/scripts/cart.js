@@ -47,6 +47,38 @@ function createProductCartCard(product) {
     const price = document.createElement('h4');
     price.textContent = `$${precioFormateado}`;
 
+
+    const groupbutton = document.createElement('div');
+    groupbutton.classList.add('group-button');
+
+    const addbutton = document.createElement('button');
+    addbutton.textContent = '+';
+    addbutton.addEventListener('click',() => {
+        const index = cartProducts.findIndex(p => p.airtableId === product.airtableId);
+        if (index !== -1){
+                cartProducts[index].quantity++;
+        }
+        localStorage.setItem('cart', JSON.stringify(cartProducts));
+            renderPayCard(cartProducts);
+            renderCartProducts(cartProducts);
+
+    });
+
+    const deletebutton = document.createElement('button');
+    deletebutton.textContent = '-';
+    
+    deletebutton.addEventListener('click',() => {
+        const index = cartProducts.findIndex(p => p.airtableId === product.airtableId);
+        if (index !== -1){
+                cartProducts[index].quantity--;
+        }
+        localStorage.setItem('cart', JSON.stringify(cartProducts));
+            renderPayCard(cartProducts);
+            renderCartProducts(cartProducts);
+
+        });
+    
+
     const button = document.createElement('button');
     button.textContent = 'Eliminar';
     button.addEventListener('click', () => {
@@ -61,7 +93,15 @@ function createProductCartCard(product) {
     card.appendChild(img);
     card.appendChild(title);
     card.appendChild(price);
-    card.appendChild(button);
+    card.appendChild(groupbutton)
+    if (product.quantity > 1){
+        groupbutton.appendChild(deletebutton);
+    }
+
+     if (product.quantity < product.stock){
+        groupbutton.appendChild(addbutton);
+    }
+    groupbutton.appendChild(button);
 
     return card;
 }
@@ -98,6 +138,10 @@ function renderPayCard(products) {
     lists.appendChild(productList);
     productList.classList.add('product-list');
 
+    const quantityList = document.createElement('ul');
+    lists.appendChild(quantityList);
+    quantityList.classList.add('quantity-list');
+
     const priceList = document.createElement('ul');
     lists.appendChild(priceList);
     priceList.classList.add('price-list');
@@ -122,7 +166,7 @@ function renderPayCard(products) {
     });
 
     let precioTotal = 0;
-    precioTotal = products.reduce((total, product) => total + product.price, 0);
+    precioTotal = products.reduce((total, product) => total + (product.price * product.quantity), 0);
 
     const totalFormateado = precioTotal.toLocaleString("es-AR");
     const totalNumber = document.createElement('h3');
@@ -134,12 +178,17 @@ function renderPayCard(products) {
         const liName = document.createElement('li');
         liName.textContent = product.name;
 
-        const liPriceFormateado = product.price.toLocaleString("es-AR");
+        const liquantity = document.createElement('li');
+        liquantity.textContent = product.quantity;
+
+        const liPriceCalculado = product.price * product.quantity;
+        const liPriceFormateado = liPriceCalculado.toLocaleString("es-AR");
         const liPrice = document.createElement('li');
         liPrice.textContent = `$${liPriceFormateado}`;
 
         productList.appendChild(liName);
         priceList.appendChild(liPrice);
+        quantityList.appendChild(liquantity);
 
     });
 

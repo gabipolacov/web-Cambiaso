@@ -28,6 +28,7 @@ async function fetchProduct() {
             price: record.fields.price,
             image: record.fields.image,
             description: record.fields.description,
+            stock: record.fields.stock,
             Id: record.fields.Id,
             category: record.fields.category,
         };
@@ -76,6 +77,10 @@ function createDetailCard(product) {
     description.textContent = fields.description;
     textCard.appendChild(description);
 
+    const cantidad = document.createElement('p');
+    cantidad.innerHTML = `<b>Stock Disponible: ${fields.stock}</b>`;
+    textCard.appendChild(cantidad);
+
     const button = document.createElement('button');
     button.textContent = 'Agregar al carrito';
     textCard.appendChild(button);
@@ -87,37 +92,38 @@ function createDetailCard(product) {
             image: fields.image,
             description: fields.description,
             Id: fields.Id,
+            quantity: 1,
+            stock: fields.stock,
             category: fields.category
         };
         const exists = cartProducts.find(p => p.Id === productToAdd.Id);
+        const index = cartProducts.findIndex(p => p.Id === productToAdd.Id);
         if (!exists) {
             cartProducts.push(productToAdd);
             localStorage.setItem('cart', JSON.stringify(cartProducts));
             console.log('Producto agregado al carrito');
+
+            button.textContent = '¡Agregado al carrito!';
+            button.style.backgroundColor = "green";
+
+            setTimeout(function () {
+                button.textContent = 'Agregar al carrito';
+                button.style.backgroundColor = "black";
+            }, 1500);
         }
+        else{
+            cartProducts.splice(index, 1);
+            productToAdd.quantity++;
+            cartProducts.push(productToAdd);
+            localStorage.setItem('cart', JSON.stringify(cartProducts));
+            button.textContent = '¡Agregado nuevamente al carrito!';
+            button.style.backgroundColor = "green";
 
-        if (!exists) {
-            Swal.fire({
-                icon: 'success',
-                title: '¡Producto agregado al Carrito!',
-                html: `Para ver tu productos, dirígete a la sección
-                        <a href="carrito.html" autofocus>Carrito</a>.`,
-                customClass: {
-                confirmButton: 'custom-button',
-            },
-            });
-
-        } else {
-            Swal.fire({
-                icon: 'info',
-                title: '¡Este producto ya está en tu carrito!',
-                html: `Para ver tu productos, dirígete a la sección
-                        <a href="carrito.html" autofocus>Carrito</a>.`,
-                customClass: {
-                confirmButton: 'custom-button',
-            },
-            });
-        }      
+            setTimeout(function () {
+                button.textContent = 'Agregar al carrito';
+                button.style.backgroundColor = "black";
+            }, 1500);
+        }
     });
 
     return card;

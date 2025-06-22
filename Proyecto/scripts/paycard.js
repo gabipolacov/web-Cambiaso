@@ -28,11 +28,36 @@ async function fetchPayment() {
 
 }
 
-//Eliminar el registro en Airtable cuando se hace 
-async function removeProduct(id) {
+//Editar el stock del registro en Airtable cuando se hace el pago
+async function editProduct(productid, newStock) {
 
+    try{
+    const stockProduct = {
+        fields: {
+            stock: newStock,
+        }
+    };
+    const response = await fetch(`${API_URL_PRODUCTS}/${productid}`, {
+        method: 'PATCH',
+        headers: {
+            'Authorization': `Bearer ${API_TOKEN}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(stockProduct)
+    });
+    const data = await response.json();
+
+      return true;
+    } catch (error) {
+        console.error("No se pudo completar el pago", error);
+        return false;
+    }
+}
+
+//Eliminar el registro en Airtable cuando se hace el pago
+async function removeProduct(productId) {
     try {
-        const response = await fetch(`${API_URL_PRODUCTS}/${id}`, {
+        const response = await fetch(`${API_URL_PRODUCTS}/${productId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${API_TOKEN}`,
@@ -45,7 +70,6 @@ async function removeProduct(id) {
         console.error("No se pudo completar el pago", error);
         return false;
     }
-
 
 }
 
@@ -108,40 +132,48 @@ function createPayDetailCard(payment) {
     });
 
     payButton.addEventListener('click', async () => {
-    try {
-        const results = await Promise.all(
-            carttoPay.map(product => removeProduct(product.airtableId))
-        );
+        try {
+            const results = await Promise.all(
+                carttoPay.map(product => {
+                    if (product.quantity === product.stock) {
+                        return removeProduct(product.airtableId);
+                    }
+                    else{
+                        const newStock = product.stock - product.quantity;
+                        return editProduct(product.airtableId, newStock);
+                    }
+                })
+            );
+    
 
-        //Se verifica que todos los elementos del array results sean true.
-        const allCompleted = results.every(result => result === true);
+    //Se verifica que todos los elementos del array results sean true.
+    const allCompleted = results.every(result => result === true);
 
-        if (allCompleted) {
-            Swal.fire({
-                icon: 'success',
-                title: '¡Pago Completado!',
-                text: 'La compra se realizó con éxito.',
-                customClass: {
-                confirmButton: 'custom-button',
-            },
-            });
-
-            localStorage.removeItem('pay-cart');
-
-        } else {
-            throw new Error("Uno o más productos no se eliminaron correctamente.");
-        }
-    } catch (error) {
+    if (allCompleted) {
         Swal.fire({
-            icon: 'error',
-            title: '¡Error!',
-            text: 'Hubo un problema con el pago. Inténtalo de nuevo más tarde.',
+            icon: 'success',
+            title: '¡Pago Completado!',
+            text: 'La compra se realizó con éxito.',
             customClass: {
                 confirmButton: 'custom-button',
             },
         });
-        console.error(error);
-    }
-});
 
+        localStorage.removeItem('pay-cart');
+
+    } else {
+        throw new Error("Uno o más productos no se eliminaron correctamente.");
+    }
+} catch (error) {
+    Swal.fire({
+        icon: 'error',
+        title: '¡Error!',
+        text: 'Hubo un problema con el pago. Inténtalo de nuevo más tarde.',
+        customClass: {
+            confirmButton: 'custom-button',
+        },
+    });
+    console.error(error);
+}
+    });
 }

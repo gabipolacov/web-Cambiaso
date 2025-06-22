@@ -136,14 +136,14 @@ nav {
 /* Estilos de la tarjeta */
 .details-card {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr 2fr);
     /*Columnas en grid*/
     border-radius: 6px;
     border-color: 2px solid rgb(58, 56, 53);
     padding: 10px;
     box-shadow: 0px 0px 1px rgb(167, 161, 161);
     height: 75%;
-    width: 40%;
+    width: fit-content;
     /* asegura que crezca uniformemente */
     background-color: rgb(254, 254, 255);
     align-self: center;
@@ -179,9 +179,10 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 90%;
 
     img {
-        height: 300px;
+        height: 280px;
         border-radius: 6px;
         filter: brightness(1.1);
         /* Quita el fondo blanco de una imagen */

@@ -35,11 +35,16 @@ form.addEventListener('submit', async (event) => {
         name: document.getElementById('title').value,
         category: document.getElementById('category').value,
         description: document.getElementById('description').value,
+        stock: parseInt(document.getElementById('stock').value),
         price: parseFloat(document.getElementById('price').value),
-        image: document.getElementById('image').value,
+        image: [
+            {
+                url: document.getElementById('image').value
+            }
+        ],
     };
     const airtableId = await addProduct(formProduct);
-
+    console.log(formProduct);
     if (airtableId) {
         formProduct.airtableId = airtableId;
         Swal.fire({

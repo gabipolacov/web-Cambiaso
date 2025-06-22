@@ -30,6 +30,7 @@ async function fetchProducts() {
             image: fields.image,
             description: fields.description,
             Id: fields.Id,
+            stock: fields.stock,
             category: fields.category,
             airtableId: record.id
         };
@@ -37,12 +38,13 @@ async function fetchProducts() {
     productsList.forEach(product => {
         const card = createProductCard(product);
         grid.appendChild(card);
+        
     });
 }
 
 //Se crea la función para generar las tarjetas
 function createProductCard(product) {
-
+    
     //Se crea la tarjeta y cada uno de sus componentes
     const card = document.createElement('div');
     card.classList.add('card');
@@ -82,38 +84,39 @@ function createProductCard(product) {
             image: product.image,
             description: product.description,
             Id: product.Id,
+            stock: product.stock,
+            quantity: 1,
             category: product.category,
             airtableId: product.airtableId
         };
 
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const exists = cart.find(p => p.Id === productToAdd.Id);
+        const exists = cartProducts.find(p => p.Id === productToAdd.Id);
+        const index = cartProducts.findIndex(p => p.Id === productToAdd.Id);
         if (!exists) {
-            cart.push(productToAdd);
-            localStorage.setItem('cart', JSON.stringify(cart));
+            cartProducts.push(productToAdd);
+            localStorage.setItem('cart', JSON.stringify(cartProducts));
+            console.log('Producto agregado al carrito');
+
+            button.textContent = '¡Agregado al carrito!';
+            button.style.backgroundColor = "green";
+
+            setTimeout(function () {
+                button.textContent = 'Agregar al carrito';
+                button.style.backgroundColor = "black";
+            }, 1500);
         }
+        else{
+            cartProducts.splice(index, 1);
+            productToAdd.quantity++;
+            cartProducts.push(productToAdd);
+            localStorage.setItem('cart', JSON.stringify(cartProducts));
+            button.textContent = '¡Agregado nuevamente al carrito!';
+            button.style.backgroundColor = "green";
 
-        if (!exists) {
-            Swal.fire({
-                icon: 'success',
-                title: '¡Producto agregado al Carrito!',
-                html: `Para ver tu productos, dirígete a la sección
-                        <a href="carrito.html" autofocus>Carrito</a>.`,
-                customClass: {
-                confirmButton: 'custom-button',
-            },
-            });
-
-        } else {
-            Swal.fire({
-                icon: 'info',
-                title: '¡Este producto ya está en tu carrito!',
-                html: `Para ver tu productos, dirígete a la sección
-                        <a href="carrito.html" autofocus>Carrito</a>.`,
-                customClass: {
-                confirmButton: 'custom-button',
-            },
-            });
+            setTimeout(function () {
+                button.textContent = 'Agregar al carrito';
+                button.style.backgroundColor = "black";
+            }, 1500);
         }
     });
 
@@ -124,6 +127,7 @@ function createProductCard(product) {
     card.appendChild(button);
 
     return card;
+    
 }
 
 //-----------------------------------------------------------
@@ -134,6 +138,15 @@ const searchInputBtn = document.querySelector('#btn-search-product');
 const category = document.querySelector('#category-filter');
 const precioMax = document.querySelector('#filter-max');
 const precioMin = document.querySelector('#filter-min');
+const cleanFilters =document.querySelector('#clean-filters');
+
+cleanFilters.addEventListener('click', () =>{
+    precioMax.value = '';
+    precioMin.value = '';
+    category.value = 'todas';
+    searchInput.value = '';
+    filterProducts('', 'todas', 0, 0);
+});
 
 function renderProducts(list) {
     list.forEach(product => {
@@ -198,8 +211,8 @@ searchInputBtn.addEventListener('click', (e) => {
 
     const valorInput = searchInput.value;
     const categoryInput = category.value;
-    const minimoInput = precioMin.value;
-    const maximoInput = precioMax.value;
+    const minimoInput = precioMin.value || 0;
+    const maximoInput = precioMax.value || Infinity;
 
     filterProducts(valorInput, categoryInput, minimoInput, maximoInput);
 });

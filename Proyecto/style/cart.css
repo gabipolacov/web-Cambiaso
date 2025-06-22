@@ -205,6 +205,7 @@ nav {
     border-color: 1px rgb(58, 56, 53) solid;
     padding:10px;
     margin: 5px; 
+    width: 100%;
     position: relative; /* Se mantiene en su posición normal dentro del flujo del documento, pero sirve como referencia para el posicionamiento de sus hijos (.pay-card button) */
     box-shadow: 5px 5px 10px rgb(112, 104, 104);
 
@@ -216,7 +217,7 @@ nav {
     .lists-container {
         display: flex;
         justify-content: space-between;
-        padding: 5px;;
+        padding: 5px;
     }
     .product-list{
         list-style: none;
@@ -225,6 +226,12 @@ nav {
         }
     }
     .price-list{
+        list-style: none;
+        li{
+            padding: 3px;
+        }
+    }
+    .quantity-list{
         list-style: none;
         li{
             padding: 3px;
@@ -243,6 +250,11 @@ nav {
 .pay-card button {
     bottom: 5px;
     right: 10px;
+}
+
+.group-button{
+    display: flex;
+    justify-content: end;
 }
 
 /* Estilos para todos los botones */
