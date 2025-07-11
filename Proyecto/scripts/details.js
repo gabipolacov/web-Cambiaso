@@ -12,7 +12,7 @@ fetchProduct();
 
 //Función para obtener los productos de Airtable
 async function fetchProduct() {
-    console.log("Accediendo a la tabla");
+     document.getElementById('loader').style.display = 'block';
     const response = await fetch(API_URL, {
         method: 'GET',
         headers: {
@@ -35,6 +35,7 @@ async function fetchProduct() {
     } else {
         product = null;
     }
+    document.getElementById('loader').style.display = 'none';
     const detailCard = createDetailCard(record);
     detailSection.appendChild(detailCard);
 }

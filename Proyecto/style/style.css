@@ -516,6 +516,11 @@ footer p{
     font-style: italic;
 }
 
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
 /*En este mediaquery: las tarjetas de la galeria se muestran de a 3*/
 @media (max-width: 910px){
     .gallery{

@@ -1,3 +1,5 @@
+
+
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 const carttoPay = JSON.parse(localStorage.getItem('pay-cart')) || [];

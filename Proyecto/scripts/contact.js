@@ -1,4 +1,6 @@
-const API_TOKEN = 'patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
+
+
+const API_TOKEN ='patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
 const BASE_ID = 'apppfuJapye8WbhBo';
 const TABLE_NAME = 'Messages';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;

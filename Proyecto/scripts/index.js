@@ -1,5 +1,7 @@
 
-const API_TOKEN = 'patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
+import SECRETS from './secrets.js';
+
+const API_TOKEN = SECRETS.AIRTABLE_SECRET;
 const BASE_ID = 'apppfuJapye8WbhBo';
 const TABLE_NAME = 'Products';
 const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
@@ -14,6 +16,7 @@ fetchProducts();
 
 //Función para obtener los productos de Airtable
 async function fetchProducts() {
+  
     const response = await fetch(API_URL, {
         method: 'GET',
         headers: {
@@ -35,6 +38,7 @@ async function fetchProducts() {
             airtableId: record.id
         };
     });
+   
     productsList.forEach(product => {
         const card = createProductCard(product);
         grid.appendChild(card);
@@ -158,7 +162,7 @@ function renderProducts(list) {
 function filterProducts(text, cat, min, max) {
     const filteredProducts = productsList.filter(product => {
 
-        if (cat.includes("todas") && min == 0 && max == 0) {
+        if (cat.includes("todas") && min == 0 && max == Infinity) {
             return product.name.toLowerCase().includes(text.toLowerCase());
         }
         else if (cat.includes("todas")) {
@@ -217,3 +221,17 @@ searchInputBtn.addEventListener('click', (e) => {
     filterProducts(valorInput, categoryInput, minimoInput, maximoInput);
 });
 
+function applyFilters() {
+  const valorInput = searchInput.value.trim();
+  const categoryInput = category.value;
+  const minimoInput = precioMin.value.trim() === '' ? 0 : parseFloat(precioMin.value);
+  const maximoInput = precioMax.value.trim() === '' ? Infinity : parseFloat(precioMax.value);
+
+  filterProducts(valorInput, categoryInput, minimoInput, maximoInput);
+}
+
+// Agregar event listeners para que se active cuando cambian los filtros
+searchInput.addEventListener('input', applyFilters);
+category.addEventListener('change', applyFilters);
+precioMin.addEventListener('input', applyFilters);
+precioMax.addEventListener('input', applyFilters);
