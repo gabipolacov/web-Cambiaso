@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiaso</title>
+    <link rel="stylesheet" href="./style/style.css">
+    <!-- Preconexión para optimizar carga de fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fuentes Google: Bebas Neue y Roboto -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- Íconos de Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!--Icono de pestaña de la pagina-->
+    <link rel="icon" type="image/x-icon" href="./iconos/icono-pagina.ico">
+</head>
+
+<body>
+    <header>
+        <!--Menú de navegación-->
+        <button class="menu-toggle" aria-label="Open menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="venta.html">Vender</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+                <li><a href="carrito.html">Carrito</a></li>
+                <li><a href="tarjetaPago.html">Tarjeta de Pago</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!--Marca y eslogan-->
+    <div class="main-title">
+        <h1>Cambiaso</h1>
+        <h3>Encontrá lo que buscas, vendé lo que no necesitas.</h3>
+    </div>
+    <main>
+
+        <!--Formulario de contacto-->
+        <section class="payment" id="payment">
+            <div id="client-data" class="client-data">
+                <h2>Datos del cliente</h2>
+                <form class="pay-data">
+                    <label for="nombre">Nombre: </label><br>
+                    <input type="text" id="nombre" name="nombre" required><br>
+                    <label for="apellido">Apellido:</label><br>
+                    <input type="text" id="apellido" name="apellido" required><br>
+                    <label for="direccion">Dirección:</label><br>
+                    <input type="text" id="direccion" name="direccion"><br>
+                    <label for="provincia">Provincia:</label><br>
+                    <select id="provincia" name="provincia" required>
+                        <option value="Buenos Aires">Buenos Aires</option>
+                        <option value="Catamarca">Catamarca</option>
+                        <option value="Chaco">Chaco</option>
+                        <option value="Chubut">Chubut</option>
+                        <option value="Córdoba">Córdoba</option>
+                        <option value="Corrientes">Corrientes</option>
+                        <option value="Entre Ríos">Entre Ríos</option>
+                        <option value="Formosa">Formosa</option>
+                        <option value="Jujuy">Jujuy</option>
+                        <option value="La Pampa">La Pampa</option>
+                        <option value="La Rioja">La Rioja</option>
+                        <option value="Mendoza">Mendoza</option>
+                        <option value="Misiones">Misiones</option>
+                        <option value="Neuquén">Neuquén</option>
+                        <option value="Río Negro">Río Negro</option>
+                        <option value="Salta">Salta</option>
+                        <option value="San Juan">San Juan</option>
+                        <option value="San Luis">San Luis</option>
+                        <option value="Santa Cruz">Santa Cruz</option>
+                        <option value="Santa Fe">Santa Fe</option>
+                        <option value="Santiago del Estero">Santiago del Estero</option>
+                        <option value="Tierra del Fuego">Tierra del Fuego</option>
+                        <option value="Tucumán">Tucumán</option>
+                        <option value="Ciudad Autónoma de Buenos Aires">Ciudad Autónoma de Buenos Aires</option>
+                    </select><br>
+                    <label for="localidad">Localidad:</label><br>
+                    <input type="text" id="localidad" name="localidad"><br>
+                    <label for="CP">CP:</label><br>
+                    <input type="text" id="CP" name="CP"><br>
+                </form>
+            </div>
+            <div id="pay-data">
+                <h2>Datos de pago</h2>
+                <form class="pay-data">
+                    <label for="tipoPago">Tipo de pago </label><br>
+                    <select id="pago" name="pago"><br>
+                        <option value="Crédito">Tarjeta de Crédito</option>
+                        <option value="Débito">Tarjeta de Débito</option>
+                    </select><br>
+                    <label for="numero">Número de tarjeta:</label><br>
+                    <input type="text" id="numero" name="numero" required><br>
+                    <label for="clave">CVV:</label><br>
+                    <input type="text" id="clave" name="clave" required><br>
+                    <label for="titular">Titular de la tarjeta:</label><br>
+                    <input type="text" id="titular" name="titular" required><br>
+                    <label for="dni">DNI:</label><br>
+                    <input type="text" id="dni" name="dni" required><br>
+                    <button type="submit" id="pay-button">Pagar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!--Footer-->
+     <footer>
+        <div class="copyright">
+            <p>© 2025 Cambiaso. Todos los derechos reservados.</p>
+            <p>Hecho en Argentina.</p>
+        </div>
+        <div class="contactdata">
+            <p>Email: contacto@cambiaso.com</p>
+            <p>Teléfono: +54 11 1234-5678</p>
+        </div>
+        <div class="redes">
+            <a href="https://www.facebook.com/?locale=es_LA"><img src="./iconos/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/?hl=en"><img src="./iconos/instagram.png" alt="Instagram"></a>
+            <a href="https://x.com/?lang=es"><img src="./iconos/twitter.png" alt="Twitter"></a>
+        </div>
+    </footer>
+
+    <script src="./scripts/menu.js"></script>
+    <script src="./scripts/pay.js"></script>
+</body>
+<script type="module" src="./scripts/pay.js"></script>
+</html>
