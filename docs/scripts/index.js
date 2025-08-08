@@ -1,9 +1,4 @@
 
-
-
-const API_TOKEN = SECRETS.AIRTABLE_SECRET;
-const BASE_ID = 'apppfuJapye8WbhBo';
-const TABLE_NAME = 'Products';
 const API_URL = "/.netlify/functions/getProducts";
 let productsList = [];
 let productId = 0;
@@ -17,13 +12,7 @@ fetchProducts();
 //Función para obtener los productos de Airtable
 async function fetchProducts() {
   
-    const response = await fetch(API_URL, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Content-Type': 'application/json'
-        },
-    });
+    const response = await fetch(API_URL);
     const data = await response.json();
     productsList = data.records.map(record => {
         const fields = record.fields;
