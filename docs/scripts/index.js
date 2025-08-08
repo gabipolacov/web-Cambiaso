@@ -1,10 +1,10 @@
 
-import SECRETS from './secrets.js';
+
 
 const API_TOKEN = SECRETS.AIRTABLE_SECRET;
 const BASE_ID = 'apppfuJapye8WbhBo';
 const TABLE_NAME = 'Products';
-const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+const API_URL = "/.netlify/functions/getProducts";
 let productsList = [];
 let productId = 0;
 //Se ubica el selector donde van las cards
