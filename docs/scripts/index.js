@@ -14,6 +14,7 @@ async function fetchProducts() {
   
     const response = await fetch(API_URL);
     const data = await response.json();
+     console.log("Respuesta de getProducts:", data); 
     productsList = data.records.map(record => {
         const fields = record.fields;
         return {

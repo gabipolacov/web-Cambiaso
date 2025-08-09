@@ -1,9 +1,4 @@
-
-
-const API_TOKEN ='patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
-const BASE_ID = 'apppfuJapye8WbhBo';
-const TABLE_NAME = 'Messages';
-const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+const API_URL_ADD_MESSAGE = "/.netlify/functions/addMessage";;
 const form = document.getElementById('contact-form');
 
 //Función Para agregar productos a Airtable
@@ -13,10 +8,9 @@ async function addMessage(message) {
     };
 
     try {
-        const response = await fetch(API_URL, {
+        const response = await fetch(API_URL_ADD_MESSAGE, {
             method: 'POST',
             headers: {
-                'Authorization': `Bearer ${API_TOKEN}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(newMessage)

@@ -4,48 +4,45 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 const carttoPay = JSON.parse(localStorage.getItem('pay-cart')) || [];
 
-const API_TOKEN = 'patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
-const BASE_ID = 'apppfuJapye8WbhBo';
-const TABLE_NAME = 'Payments';
-const TABLE_NAME1 = 'Products';
-const API_URL_PAYMENTS = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
-const API_URL_PRODUCTS = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME1}`;
+const API_URL_GET_PAYMENTS = "/.netlify/functions/getPayments"; 
+const API_URL_EDIT_PRODUCTS = "/.netlify/functions/editProduct"; 
+const API_URL_REMOVE_PRODUCTS = "/.netlify/functions/removeProduct"; 
 console.log(carttoPay);
 fetchPayment();
 
 //Función para obtener el payment de Airtable
 async function fetchPayment() {
     console.log("Accediendo a la tabla");
-    const response = await fetch(API_URL_PAYMENTS, {
+    const response = await fetch(`${API_URL_GET_PAYMENTS}?id=${id}`, {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
             'Content-Type': 'application/json'
         },
     });
     const data = await response.json();
-    payment = data.records.find(record => record.id === id);
-    console.log("Payment encontrado:", payment);
-    createPayDetailCard(payment);
+    console.log(data);
 
+    if (!data || !data.id) {
+        console.error("No se encontró el pago con id:", id);
+        return;
+    }
+
+    createPayDetailCard(data);
 }
 
 //Editar el stock del registro en Airtable cuando se hace el pago
 async function editProduct(productid, newStock) {
 
     try{
-    const stockProduct = {
-        fields: {
-            stock: newStock,
-        }
-    };
-    const response = await fetch(`${API_URL_PRODUCTS}/${productid}`, {
-        method: 'PATCH',
+    const response = await fetch(`${API_URL_EDIT_PRODUCTS}`, {
+        method: 'POST',
         headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(stockProduct)
+          body: JSON.stringify({
+                productId: productid,
+                newStock: newStock
+            })
     });
     const data = await response.json();
 
@@ -59,12 +56,14 @@ async function editProduct(productid, newStock) {
 //Eliminar el registro en Airtable cuando se hace el pago
 async function removeProduct(productId) {
     try {
-        const response = await fetch(`${API_URL_PRODUCTS}/${productId}`, {
+        const response = await fetch(`${API_URL_REMOVE_PRODUCTS}`, {
             method: 'DELETE',
             headers: {
-                'Authorization': `Bearer ${API_TOKEN}`,
                 'Content-Type': 'application/json'
             },
+             body: JSON.stringify({
+                productId: productId
+            })
         });
         const data = await response.json();
         return true;
@@ -110,15 +109,15 @@ function createPayDetailCard(payment) {
     paymentDetails.appendChild(method);
 
     const cardNumber = document.createElement('p');
-    cardNumber.textContent = fields.cardNumber || '-';
+    cardNumber.textContent = fields.cardnumber || '-';
     paymentDetails.appendChild(cardNumber);
 
     const cvv = document.createElement('p');
-    cvv.textContent = fields.cvv || '-';
+    cvv.textContent = fields.CVV || '-';
     paymentDetails.appendChild(cvv);
 
     const cardHolder = document.createElement('p');
-    cardHolder.textContent = fields.cardHolder || '-';
+    cardHolder.textContent = fields.cardholder || '-';
     paymentDetails.appendChild(cardHolder);
 
     const dni = document.createElement('p');

@@ -2,9 +2,6 @@
 const params = new URLSearchParams(window.location.search);
 const Id = parseInt(params.get('Id'));
 const detailSection = document.getElementById('details');
-const API_TOKEN = 'patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
-const BASE_ID = 'apppfuJapye8WbhBo';
-const TABLE_NAME = 'Products';
 const API_URL = "/.netlify/functions/getProducts";
 const cartProducts = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -13,13 +10,7 @@ fetchProduct();
 //Función para obtener los productos de Airtable
 async function fetchProduct() {
      document.getElementById('loader').style.display = 'block';
-    const response = await fetch(API_URL, {
-        method: 'GET',
-        headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Content-Type': 'application/json'
-        },
-    });
+    const response = await fetch(API_URL);
     const data = await response.json();
     const record = data.records.find(record => record.fields.Id === Id);
     if (record) {

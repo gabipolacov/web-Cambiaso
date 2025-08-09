@@ -1,11 +1,15 @@
-
-
 exports.handler = async function (event, context) {
   const API_KEY = process.env.AIRTABLE_API_KEY;
-  const BASE_ID = "apppfuJapye8WbhBo"; 
-  const TABLE_NAME = "Products"; 
+  const BASE_ID = "apppfuJapye8WbhBo";
+  const TABLE_NAME = "Payments";
 
-  const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+  const id = event.queryStringParameters?.id; // obtener id de la query string
+
+  // Si hay id, consultamos ese registro puntual
+  // Si no, consultamos toda la tabla
+  const url = id
+    ? `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}/${id}`
+    : `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
 
   try {
     const res = await fetch(url, {

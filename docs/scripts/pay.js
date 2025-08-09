@@ -1,7 +1,8 @@
-const API_TOKEN = 'patzuzJS60aaOG2eX.c5c086240d6bd5338c0e9bf4ba22c453eabc7f051ca170a1ed493976fc0ac8a2';
-const BASE_ID = 'apppfuJapye8WbhBo';
-const TABLE_NAME = 'Payments';
-const API_URL = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
+const API_URL_GET_PAYMENT = "/.netlify/functions/getPayments";  // función para obtener pagos (GET)
+const API_URL_ADD_PAYMENT = "/.netlify/functions/addPayment";  // función para crear pago (POST)
+const API_URL_EDIT_PAYMENT = "/.netlify/functions/editPayment"; // función para editar pago (POST)
+
+
 const form = document.getElementById('pay-data');
 
 const params = new URLSearchParams(window.location.search);
@@ -16,17 +17,16 @@ async function addPayment(payment) {
     const newPayment = {
         fields: payment
     };
-    const response = await fetch(API_URL, {
+
+    const response = await fetch(API_URL_ADD_PAYMENT, {
         method: 'POST',
         headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
         },
         body: JSON.stringify(newPayment)
     });
+
     const data = await response.json();
-    console.log("Respuesta completa de Airtable:", data);
-    console.log("ID del registro creado:", data.id);
 
     return data.id;
 }
@@ -56,10 +56,9 @@ async function editPayment(payment) {
     const newPayment = {
         fields: payment
     };
-    const response = await fetch(`${API_URL}/${id}`, {
+    const response = await fetch(`${API_URL_EDIT_PAYMENT}?id=${id}`, {
         method: 'PATCH',
         headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(newPayment)
@@ -70,10 +69,9 @@ async function editPayment(payment) {
 }
 //Función para recargar el formulario con el payment Airtable
 async function loadForm(id) {
-    const response = await fetch(`${API_URL}/${id}`, {
+    const response = await fetch(`${API_URL_GET_PAYMENT}/?id=${id}`, {
         method: 'GET',
         headers: {
-            'Authorization': `Bearer ${API_TOKEN}`,
             'Content-Type': 'application/json'
         },
     });
@@ -86,16 +84,18 @@ async function loadForm(id) {
     document.getElementById('localidad').value = data.fields.city || '';
     document.getElementById('CP').value = data.fields.cp || '';
     document.getElementById('pago').value = data.fields.method || '';
-    document.getElementById('numero').value = data.fields.cardNumber || '';
-    document.getElementById('clave').value = data.fields.cvv || '';
-    document.getElementById('titular').value = data.fields.cardHolder || '';
+    document.getElementById('numero').value = data.fields.cardnumber || '';
+    document.getElementById('clave').value = data.fields.CVV || '';
+    document.getElementById('titular').value = data.fields.cardholder || '';
     document.getElementById('dni').value = data.fields.dni || '';
 }
 
 //Evento para hacer submit del formulario
+
 form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
+  
     if (id) {
         const formPayment = getFormData();
         const paymentId = await editPayment(formPayment);
