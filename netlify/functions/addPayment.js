@@ -1,12 +1,12 @@
 exports.handler = async (event) => {
   try {
-    
+
     const API_KEY = process.env.AIRTABLE_API_KEY;
-    const BASE_ID = "apppfuJapye8WbhBo"; // tu base de Airtable
+    const BASE_ID = "apppfuJapye8WbhBo"; // base de Airtable
     const TABLE_NAME = "Payments";
 
     const url = `https://api.airtable.com/v0/${BASE_ID}/${TABLE_NAME}`;
-     const { fields } = JSON.parse(event.body);
+    const { fields } = JSON.parse(event.body);
 
     const res = await fetch(url, {
       method: 'POST',
